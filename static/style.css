@@ -1,0 +1,75 @@
+.accountStatus {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h1.acronym {
+    font-size: 4rem;
+}
+
+.fullName {
+    text-align: center;
+    font-size: 2rem;
+}
+
+/*.linkwrapper {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+/*.linkwrapper div {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+.card-title {
+    text-align: center;
+}
+
+.card-title img {
+    max-width: 32px;
+    height: auto;
+}
+
+
+.card-img-top {
+    height: auto;
+}
+
+.card-body a {
+    display: block;
+    text-align: center;
+}
+
+.linkbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.linkbar a {
+    display: block;
+}
+
+.linkbar img, .linkbar svg {
+    width: 26px;
+    height: 26px;
+    padding: 5px;
+}
+
+.tags{
+margin-bottom: 2rem;
+}
+
+.taglist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.taglist .badge {
+    font-size: 150%;
+    margin: 5px;
+}

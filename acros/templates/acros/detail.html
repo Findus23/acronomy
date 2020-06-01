@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1 class="acronym">{{ acro.name }}</h1>
+  <p class="fullName">{{ acro.full_name }}</p>
+  {% if acro.description_html %}
+    <div class="description">
+      {{ acro.description_html|safe }}
+    </div>
+  {% endif %}
+  {#    <div class="linkwrapper">#}
+  {#        {% for link in acro.links.all %}#}
+  {#            <div><a href="{{ link.url }}">{{ link.url }}</a></div>#}
+  {#        {% endfor %}#}
+  {#        {% for paper in acro.papers.all %}#}
+  {#            <div>#}
+  {#                <a href="{{ paper.ads_url }}">ADS</a>#}
+  {#                <a href="{{ paper.arxiv_url }}">Arxiv</a>#}
+  {#                <a href="{{ paper.doi_url }}">DOI</a>#}
+  {#            </div>#}
+  {#        {% endfor %}#}
+  <div class="tags">
+    {% for tag in acro.tags.all %}
+      <a href="{% url "tag" tag.slug %}" class="badge badge-primary">{{ tag.name }}</a>
+    {% endfor %}
+  </div>
+  <div class="row">
+    {% for link in acro.wiki_articles.all %}
+      <div class="mb-4  col-md-4">
+        <div class="card">
+          <img src="{{ link.thumbnail.url }}" class="card-img-top"
+               width="{{ link.thumbnail_width }}" height="{{ link.thumbnail_height }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ link.title }}</h5>
+            {#<p class="card-text">{{ link.extract_html|safe }}</p>#}
+            <p class="card-text">{{ link.extract }}</p>
+            <a href="{{ link.url }}" class="btn btn-primary stretched-link">
+              Read on Wikipedia
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License"
+               data-toggle="tooltip"
+               target="_blank" rel="noopener"
+               class="text-muted"
+               title="This snippet and thumbnail is from the English Wikipedia and licensed under the under the CC-BY-SA 3.0 license">
+              License
+            </a>
+          </div>
+        </div>
+      </div>
+      {#            <div>#}
+      {#                <a href="{{ link.url }}">{% include 'SVGs/icons.html' with list=list1 %}</a>#}
+      {#                <a href="{{ link.url }}">{{ link.title }}</a>#}
+      {#            </div>#}
+    {% endfor %}
+    {% for paper in acro.papers.all %}
+      <div class="mb-4 col-md-4">
+        <div class="card ">
+          <div class="card-body">
+            <h5 class="card-title">{{ paper.title }} ({{ paper.year }})</h5>
+            <p>{{ paper.authors }}</p>
+            <div class="linkbar">
+              <a href="{{ paper.ads_url }}" data-toggle="tooltip" title="view on ADS">
+                <img src="{% static "ads.ico" %}">
+              </a>
+              {% if paper.arxiv_id %}
+                <a href="{{ paper.arxiv_url }}" data-toggle="tooltip" title="view on arXiv.org">
+                  <img src="{% static "arxiv.ico" %}">
+                </a>
+              {% endif %}
+              {% if paper.doi %}
+                <a href="{{ paper.doi_url }}" data-toggle="tooltip" title="Publisher Website">
+                  {% include 'SVGs/external.svg' %}
+                </a>
+              {% endif %}
+              <a href="{{ paper.publisher_url }}" data-toggle="tooltip" title="Publisher PDF">
+                {% include 'SVGs/pdf.svg' %}
+              </a>
+              {% if paper.arxiv_id %}
+                <a href="{{ paper.preprint_url }}" data-toggle="tooltip" title="arXiv.org PDF">
+                  {% include 'SVGs/pdf.svg' %}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    {% for link in acro.links.all %}
+      <div class="mb-4 col-md-4">
+        <div class="card ">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ link.host.host }}
+              {% if link.host.icon %}
+                <img src="{{ link.host.icon.url }}"
+                     width="{{ link.host.icon_width }}" height="{{ link.host.icon_height }}">
+              {% endif %}
+            </h5>
+            <a class="btn btn-primary stretched-link " href="{{ link.url }}">test</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <a href="{% url 'admin:acros_acronym_change' acro.id %}">Admin-Edit</a>
+{#  <a href="{% url 'edit' acro.slug %}">Edit</a>#}
+{% endblock %}

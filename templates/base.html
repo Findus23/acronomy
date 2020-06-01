@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>{% block title %}Acronomy{% endblock %}</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "autocomplete-js/dist/style.css" %}">
+  <link rel="stylesheet" href="{% static "tagify.css" %}">
+  <link rel="stylesheet" href="{% static "style.css" %}">
+  {% block extra_head %}
+  {% endblock %}
+</head>
+<body>
+{#        <div class="container {{ referrers is defined ? "edit" }}">#}
+<div class="container {% block containerclasses %}{% endblock %}">
+  {% if user.is_authenticated %}
+    <div class="accountStatus">
+      Hello {{ user.get_username }}, <a href="{% url 'logout' %}">Log out</a>
+    </div>
+  {% endif %}
+  <div id="autocomplete" class="autocomplete">
+    <input class="autocomplete-input" {% block searchInput %}{% endblock %}/>
+    <ul class="autocomplete-result-list"></ul>
+  </div>
+
+  {% block content %}
+  {% endblock %}
+</div>
+<script src="{% static "jquery.min.js" %}"></script>
+<script src="{% static "umd/popper.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "tagify.min.js" %}"></script>
+<script src="{% static "autocomplete-js/dist/autocomplete.min.js" %}"></script>
+<script src="{% static "app.js" %}"></script>
+
+</body>
+</html>

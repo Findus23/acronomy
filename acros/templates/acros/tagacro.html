@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <dl>
+        {% for acro in acros %}
+            <dt><a href="{% url "detail" acro.slug %}">{{ acro.name }}</a></dt>
+            <dd>{{ acro.full_name }}</dd>
+        {% endfor %}
+    </dl>
+{% endblock %}

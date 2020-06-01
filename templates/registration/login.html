@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block containerclasses %}text-center{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static "login.css" %}">
+
+{% endblock %}
+{% block content %}
+
+    <form class="form-signin" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <h1 class="h3 mb-3 font-weight-normal">Anmeldung</h1>
+        <label for="{{ form.username.id_for_label }}" class="sr-only">Benutzername</label>
+        <input class="form-control" id="{{ form.username.id_for_label }}" maxlength="30"
+               name="{{ form.username.html_name }}" type="text"
+               placeholder="Benutzername"/>
+        {#    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>#}
+        <label for="{{ form.password.id_for_label }}" class="sr-only">Passwort</label>
+        <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.html_name }}"
+               class="form-control" placeholder="Passwort" required>
+        <input type="hidden" name="next" value="{{ next }}">
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        {{ form.non_field_errors }}
+
+
+    </form>
+{% endblock %}
