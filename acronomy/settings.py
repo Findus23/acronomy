@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = ["127.0.0.1", "acronomy.lw1.at"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "acronomy.lw1.at"]
 
 # Application definition
 
@@ -120,8 +120,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules', '@yaireo', 'tagify', 'dist'),
 ]
 
-STATIC_ROOT = "/srv/server/acronomy/static"
-
 
 INTERNAL_IPS = [
     '127.0.0.1',
@@ -129,13 +127,13 @@ INTERNAL_IPS = [
 
 TAGGIT_CASE_INSENSITIVE = True
 
-SECURE_SSL_REDIRECT = True
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_REFERRER_POLICY = "origin-when-cross-origin"
 
 if Production:
+    SECURE_SSL_REDIRECT = True
     SECURE_HSTS_SECONDS = 60 * 60 * 24 * 365
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SESSION_COOKIE_SECURE = True
