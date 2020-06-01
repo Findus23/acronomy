@@ -1,18 +1,3 @@
-import markdown
-import requests
-
-
-def md_to_html(md: str) -> str:
-    html = markdown.markdown(
-        md,
-        output_format="html5",
-        extensions=[
-            "nl2br"
-        ]
-    )
-    return html
-
-
 def parse_tags(tagstring):
     """
     from https://github.com/jazzband/django-taggit/blob/master/taggit/utils.py
@@ -84,7 +69,6 @@ def parse_tags(tagstring):
     words.sort()
     return words
 
-
 def split_strip(string, delimiter=","):
     """
     from https://github.com/jazzband/django-taggit/blob/master/taggit/utils.py
@@ -99,7 +83,6 @@ def split_strip(string, delimiter=","):
 
     words = [w.strip() for w in string.split(delimiter)]
     return [w for w in words if w]
-
 
 def edit_string_for_tags(tags):
     """
@@ -125,13 +108,3 @@ def edit_string_for_tags(tags):
         # else:
         names.append(name)
     return ", ".join(sorted(names))
-
-
-def fetch_wikipedia_summary(title: str):
-    r = requests.get("https://en.wikipedia.org/api/rest_v1/page/summary/" + title)
-    if r.status_code != 200:
-        raise FileNotFoundError
-    data = r.json()
-    print(data)
-    return data["extract"], data["extract_html"], data["timestamp"], data["thumbnail"]
-

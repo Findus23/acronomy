@@ -22,7 +22,7 @@ class Host(models.Model):
         if not self.fetched or True:
             with TemporaryFile("rb+") as fd:
                 r = requests.get(f"https://external-content.duckduckgo.com/ip3/{self.host}.ico")
-                if r.status_code == 200:
+                if r.ok:
                     filename = self.host + ".png"
                     for chunk in r.iter_content(chunk_size=128):
                         fd.write(chunk)

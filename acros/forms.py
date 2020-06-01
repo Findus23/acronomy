@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm, TextInput, CharField
 
 from acros.models import Acronym, Tag
-from acros.utils import parse_tags, edit_string_for_tags
+from acros.utils.tags import parse_tags, edit_string_for_tags
 
 
 class TagWidget(TextInput):

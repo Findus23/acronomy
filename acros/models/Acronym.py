@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from simple_history.models import HistoricalRecords
 
 from acros.models import Tag
-from acros.utils import md_to_html
+from acros.utils.conversion import md_to_html
 
 
 class Acronym(models.Model):

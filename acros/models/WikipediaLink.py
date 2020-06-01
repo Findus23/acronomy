@@ -6,7 +6,7 @@ from django.db import models
 from simple_history.models import HistoricalRecords
 
 from acros.models import Acronym
-from acros.utils import fetch_wikipedia_summary
+from acros.utils.apis import fetch_wikipedia_summary
 
 
 class WikipediaLink(models.Model):
@@ -24,10 +24,10 @@ class WikipediaLink(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.fetched:
-            self.extract, self.extract_html, self.timestamp, thumbnail = fetch_wikipedia_summary(self.title)
+            self.extract, self.extract_html, self.timestamp, thumbnail_url = fetch_wikipedia_summary(self.title)
             with TemporaryFile("rb+") as fd:
-                r = requests.get(thumbnail["source"])
-                filename = thumbnail["source"].split("/")[-1]
+                r = requests.get(thumbnail_url)
+                filename = thumbnail_url.split("/")[-1]
                 for chunk in r.iter_content(chunk_size=128):
                     fd.write(chunk)
                 image_file = File(fd)
