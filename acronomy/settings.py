@@ -120,6 +120,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules', '@yaireo', 'tagify', 'dist'),
 ]
 
+STATIC_ROOT = "/srv/server/acronomy/static"
+
+
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
