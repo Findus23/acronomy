@@ -5,7 +5,7 @@ description = ""
 authors = ["Lukas Winkler <git@lw1.at>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.7,<4.0"
 django = {extras = ["argon2"], version = "^3.0.6"}
 psycopg2 = "^2.8.5"
 django-simple-history = "^2.10.0"
