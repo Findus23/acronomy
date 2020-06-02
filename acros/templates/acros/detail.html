@@ -61,11 +61,11 @@
             <p>{{ paper.authors }}</p>
             <div class="linkbar">
               <a href="{{ paper.ads_url }}" data-toggle="tooltip" title="view on ADS">
-                <img src="{% static "ads.ico" %}">
+                <img src="{% static "images/ads.png" %}" width="32" height="32">
               </a>
               {% if paper.arxiv_id %}
                 <a href="{{ paper.arxiv_url }}" data-toggle="tooltip" title="view on arXiv.org">
-                  <img src="{% static "arxiv.ico" %}">
+                  <img src="{% static "images/arxiv.png" %}" width="32" height="32">
                 </a>
               {% endif %}
               {% if paper.doi %}
@@ -104,5 +104,5 @@
     {% endfor %}
   </div>
   <a href="{% url 'admin:acros_acronym_change' acro.id %}">Admin-Edit</a>
-{#  <a href="{% url 'edit' acro.slug %}">Edit</a>#}
+  {#  <a href="{% url 'edit' acro.slug %}">Edit</a>#}
 {% endblock %}

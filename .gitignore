@@ -113,3 +113,4 @@ node_modules/
 acronyms.txt
 media/
 acronomy/secrets.py
+static/css

@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 
 from acros.models import Acronym
-from acros.utils import md_to_html
+from acros.utils.conversion import md_to_html
 
 
 class Command(BaseCommand):
