@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'simple_history',
     'debug_toolbar',
     'rest_framework',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -118,8 +119,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules', 'popper.js', 'dist'),
     os.path.join(BASE_DIR, 'node_modules', '@trevoreyre'),
     os.path.join(BASE_DIR, 'node_modules', '@yaireo', 'tagify', 'dist'),
+    os.path.join(BASE_DIR, 'node_modules', 'codemirror')
 ]
-
 
 INTERNAL_IPS = [
     '127.0.0.1',

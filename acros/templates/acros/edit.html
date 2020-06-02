@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
 
 {% block content %}
 
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Update">
-    </form>
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+      <input type="submit" value="Update">
+    {% endbuttons %}
+  </form>
 
+{% endblock %}
+
+{% block extra_head %}
+  <script src="{% static "lib/codemirror.js" %}"></script>
+  <link rel="stylesheet" href="{% static "lib/codemirror.css" %}">
+  <script src="{% static "mode/markdown/markdown.js" %}"></script>
 {% endblock %}

@@ -6,7 +6,7 @@ def md_to_html(md: str) -> str:
         md,
         output_format="html5",
         extensions=[
-            "nl2br"
+            "nl2br",
         ]
     )
     return html

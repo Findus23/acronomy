@@ -59,8 +59,8 @@ h1.acronym {
     padding: 5px;
 }
 
-.tags{
-margin-bottom: 2rem;
+.tags {
+    margin-bottom: 2rem;
 }
 
 .taglist {
@@ -72,4 +72,35 @@ margin-bottom: 2rem;
 .taglist .badge {
     font-size: 150%;
     margin: 5px;
+}
+
+/* https://stackoverflow.com/a/27727359/4398037 */
+.CodeMirror {
+    /* Bootstrap Settings */
+    box-sizing: border-box;
+    margin: 0;
+    font: inherit;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    /* Code Mirror Settings */
+    font-family: monospace, monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.CodeMirror-focused {
+    /* Bootstrap Settings */
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }

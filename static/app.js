@@ -68,4 +68,11 @@ fetch("/api/tag/")
 
     })
 
+const myCodeMirror = CodeMirror.fromTextArea(
+    document.getElementById("id_description_md"),
+    {
+        lineWrapping: true,
+        lineNumbers: true,
+    }
+);
 
