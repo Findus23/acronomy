@@ -18,13 +18,16 @@ class WikipediaLink(models.Model):
                                   height_field="thumbnail_height", width_field="thumbnail_width")
     thumbnail_width = models.IntegerField(blank=True, editable=False)
     thumbnail_height = models.IntegerField(blank=True, editable=False)
+    thumbnail_title = models.CharField(max_length=100, null=True, blank=True)
+    thumbnail_caption = models.CharField(max_length=1000, null=True, blank=True)
     timestamp = models.DateTimeField(blank=True)
     fetched = models.BooleanField(default=False)
     history = HistoricalRecords()
 
     def save(self, *args, **kwargs):
         if not self.fetched:
-            self.extract, self.extract_html, self.timestamp, thumbnail_url = fetch_wikipedia_summary(self.title)
+            self.extract, self.extract_html, self.timestamp, thumbnail_url, \
+            self.thumbnail_title, self.thumbnail_caption = fetch_wikipedia_summary(self.title)
             with TemporaryFile("rb+") as fd:
                 r = requests.get(thumbnail_url)
                 filename = thumbnail_url.split("/")[-1]
@@ -39,6 +42,10 @@ class WikipediaLink(models.Model):
     @property
     def url(self):
         return f"https://en.wikipedia.org/wiki/{self.title}"
+
+    @property
+    def thumbnail_wiki_url(self):
+        return f"https://en.wikipedia.org/wiki/{self.thumbnail_title}"
 
     def __str__(self):
         return self.title

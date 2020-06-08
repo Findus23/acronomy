@@ -53,3 +53,11 @@ class AddForm(ModelForm):
         model = Acronym
 
         fields = ['name', 'full_name', "description_md", "tags"]
+
+class AddWikipediaForm(ModelForm):
+    tags = TagField()
+
+    class Meta:
+        model = Acronym
+
+        fields = ['name', 'full_name', "description_md", "tags"]
