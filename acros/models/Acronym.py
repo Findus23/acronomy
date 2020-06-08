@@ -13,8 +13,10 @@ class Acronym(models.Model):
     slug = models.SlugField(null=False, unique=True)
     description_md = models.TextField(blank=True)
     description_html = models.TextField(editable=False)
-    history = HistoricalRecords()
+    history = HistoricalRecords(excluded_fields=["created_date"])
     tags = models.ManyToManyField(Tag, related_name="acronyms")
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         self.description_html = md_to_html(self.description_md)
@@ -27,6 +29,9 @@ class Acronym(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', args=[str(self.slug)])
+
+    def first_letter(self):
+        return self.name and self.name[0] or ''
 
     class Meta:
         ordering = ["name"]

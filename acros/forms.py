@@ -11,6 +11,11 @@ class TagWidget(TextInput):
             value = edit_string_for_tags(value)
         return super().format_value(value)
 
+    def __init__(self, *args, **kwargs):
+        super(TagWidget, self).__init__(*args, **kwargs)
+        attrs = {"class": "taginput"}
+        self.attrs.update(attrs)
+
 
 class TagField(CharField):
     """
@@ -53,6 +58,7 @@ class AddForm(ModelForm):
         model = Acronym
 
         fields = ['name', 'full_name', "description_md", "tags"]
+
 
 class AddWikipediaForm(ModelForm):
     tags = TagField()

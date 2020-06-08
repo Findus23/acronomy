@@ -21,7 +21,13 @@
     <div class="accountStatus">
       Hello {{ user.get_username }}, <a href="{% url 'logout' %}">Log out</a>
     </div>
+  {% else %}
+    <div class="accountStatus">
+      <a href="{% url 'login' %}">Log in</a>
+    </div>
   {% endif %}
+  {% block heading %}
+  {% endblock %}
   <div id="autocomplete" class="autocomplete">
     <input class="autocomplete-input" {% block searchInput %}{% endblock %}/>
     <ul class="autocomplete-result-list"></ul>

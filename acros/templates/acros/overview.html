@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
 
+{% block heading %}
+  <h1>All Acronyms</h1>
+{% endblock %}
+
 {% block content %}
+  {% regroup acros by first_letter as letter_acros %}
+
+  <div class="quicklinks">
+    {% for letter in letter_acros %}
+      <a href="#{{ letter.grouper }}">{{ letter.grouper }}</a>
+    {% endfor %}
+  </div>
+
+  {% for letter in letter_acros %}
+    <h3 id="{{ letter.grouper }}">{{ letter.grouper }}</h3>
     <dl>
-
-        {% for acro in acros %}
-            <dt><a href="{% url "detail" acro.slug %}">{{ acro.name }}</a></dt>
-            <dd>{{ acro.full_name }}</dd>
-
-
-        {% endfor %}
+      {% for acro in letter.list %}
+        <dt><a href="{% url "detail" acro.slug %}">{{ acro.name }}</a></dt>
+        <dd>{{ acro.full_name }}</dd>
+      {% endfor %}
     </dl>
+  {% endfor %}
 {% endblock %}

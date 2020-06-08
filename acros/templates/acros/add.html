@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block heading %}
+  <h1>Add new Acronym</h1>
+{% endblock %}
 
 {% block content %}
 
-  <form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Add">
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+      <input type="submit" value="Update">
+    {% endbuttons %}
   </form>
+{% endblock %}
 
+{% block extra_head %}
+  <script src="{% static "libs/codemirror.js" %}"></script>
+  <script src="{% static "libs/markdown.js" %}"></script>
 {% endblock %}

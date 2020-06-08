@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'simple_history',
     'debug_toolbar',
     'rest_framework',
@@ -122,7 +123,7 @@ INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
-TAGGIT_CASE_INSENSITIVE = True
+SIMPLE_HISTORY_FILEFIELD_TO_CHARFIELD = True
 
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True

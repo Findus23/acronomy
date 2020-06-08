@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
+
+{% block heading %}
+  <h1>Acronyms tagged "{{ request.resolver_match.kwargs.slug }}"</h1>
+{% endblock %}
 {% block content %}
-    <dl>
-        {% for acro in acros %}
-            <dt><a href="{% url "detail" acro.slug %}">{{ acro.name }}</a></dt>
-            <dd>{{ acro.full_name }}</dd>
-        {% endfor %}
-    </dl>
+  <dl>
+    {% for acro in acros %}
+      <dt><a href="{% url "detail" acro.slug %}">{{ acro.name }}</a></dt>
+      <dd>{{ acro.full_name }}</dd>
+    {% endfor %}
+  </dl>
 {% endblock %}

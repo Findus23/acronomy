@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+
+{% block title %}{{ acro.name }}: {{ acro.full_name }} &dash; Acronomy{% endblock %}
+
+{% block heading %}
   <h1 class="acronym">{{ acro.name }}</h1>
   <p class="fullName">{{ acro.full_name }}</p>
+
+{% endblock %}
+
+{% block content %}
   {% if acro.description_html %}
     <div class="description">
       {{ acro.description_html|safe }}
@@ -64,7 +71,7 @@
             <p>{{ paper.authors }}</p>
             <div class="linkbar">
               <a href="{{ paper.ads_url }}" data-toggle="tooltip" title="view on ADS">
-                <img src="{% static "images/ads.png" %}" width="32" height="32">
+                <img src="{% static "images/adees.png" %}" width="32" height="32">
               </a>
               {% if paper.arxiv_id %}
                 <a href="{{ paper.arxiv_url }}" data-toggle="tooltip" title="view on arXiv.org">
@@ -142,6 +149,8 @@
     {#      </div>#}
     {#    {% endif %}#}
   </div>
-  <a href="{% url 'admin:acros_acronym_change' acro.id %}">Admin-Edit</a>
-  {#  <a href="{% url 'edit' acro.slug %}">Edit</a>#}
+  {% if user.is_staff %}
+    <a class="btn btn-outline-secondary" href="{% url 'admin:acros_acronym_change' acro.id %}">Admin-Edit</a>
+  {% endif %}
+    <a class="btn btn-outline-secondary" href="{% url 'edit' acro.slug %}">Edit</a>
 {% endblock %}

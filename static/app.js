@@ -31,11 +31,12 @@ new Autocomplete('#autocomplete', {
     // a new window
     onSubmit: result => {
         console.log(result)
-        window.location = "/acro/" + result.slug
+        window.location = "/acronym/" + result.slug
     },
     autoSelect: true,
 })
 const input = document.querySelector('input[name="tags"]')
+input.classList.remove("form-control")
 
 document.querySelector("form").addEventListener("submit", function () {
     const list = JSON.parse(input.value).map(function (item) {
@@ -75,4 +76,3 @@ const myCodeMirror = CodeMirror.fromTextArea(
         lineNumbers: true,
     }
 );
-

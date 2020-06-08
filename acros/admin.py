@@ -24,7 +24,7 @@ class WikiInline(OwnInline):
     fields = ["title"]
 
 
-class TagAdmin(admin.ModelAdmin):
+class TagAdmin(SimpleHistoryAdmin):
     # prepopulated_fields = {'slug': ('name',)}
     readonly_fields = ["slug"]
 
@@ -36,20 +36,20 @@ class AcronymAdmin(SimpleHistoryAdmin):
     filter_horizontal = ["tags"]
     readonly_fields = ["slug"]
     list_display = ["name", "full_name"]
-    list_filter = ["tags"]
+    list_filter = ["tags", "modified_date", "created_date"]
     save_on_top = True
 
 
-class PaperAdmin(admin.ModelAdmin):
+class PaperAdmin(SimpleHistoryAdmin):
     date_hierarchy = "pubdate"
     list_display = ["title", "authors"]
 
 
-class LinkAdmin(admin.ModelAdmin):
+class LinkAdmin(SimpleHistoryAdmin):
     readonly_fields = ["host"]
 
 
-class WikipediaAdmin(admin.ModelAdmin):
+class WikipediaAdmin(SimpleHistoryAdmin):
     readonly_fields = ["thumbnail_height", "thumbnail_width"]
 
 
