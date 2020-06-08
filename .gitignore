@@ -113,4 +113,6 @@ node_modules/
 acronyms.txt
 media/
 acronomy/secrets.py
-static/css
+!static/css/.gitkeep
+static/css/*.css
+static/css/*.map
