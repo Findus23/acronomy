@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -7,8 +8,13 @@ from acros.models import Tag
 from acros.utils.conversion import md_to_html
 
 
+def valid_acronym(value: str):
+    if ":" in value:
+        raise ValidationError('Acronyms are not allowed to contain a ":"')
+
+
 class Acronym(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, validators=[valid_acronym])
     full_name = models.CharField(max_length=1000)
     slug = models.SlugField(null=False, unique=True)
     description_md = models.TextField(blank=True)
@@ -35,3 +41,12 @@ class Acronym(models.Model):
 
     class Meta:
         ordering = ["name"]
+
+    def clean(self):
+        new_slug = slugify(self.name)
+        try:
+            found = Acronym.objects.get(slug=new_slug)
+        except Acronym.DoesNotExist:
+            found = False
+        if found:
+            raise ValidationError(f"slug '{new_slug}' already exists")

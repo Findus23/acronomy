@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponse
 from django.views import generic
 from rest_framework import viewsets, filters
@@ -34,10 +35,11 @@ class EditView(LoginRequiredMixin, generic.UpdateView):
     form_class = EditForm
 
 
-class AddView(LoginRequiredMixin, generic.CreateView):
+class AddView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     template_name = "acros/add.html"
     form_class = AddForm
     model = Acronym
+    success_message = 'Acronym "%(name)s" was created successfully'
 
 
 class TagListView(generic.ListView):

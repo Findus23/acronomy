@@ -59,3 +59,6 @@ admin.site.register(PaperReference, PaperAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Acronym, AcronymAdmin)
 admin.site.register(Host)
+
+admin.site.site_header="Acronomy Administration"
+admin.site.site_title="Acronomy Administration"
