@@ -36,6 +36,9 @@ urlpatterns = [
 if settings.DEBUG:
     import debug_toolbar
 
+    urlpatterns.append(path("css", views.debug_css, name="css"))
+    urlpatterns.append(path("css_sourcemap", views.debug_css_sourcemap, name="css_sourcemap"))
+
     urlpatterns = [
                       path('__debug__/', include(debug_toolbar.urls)),
                   ] + urlpatterns

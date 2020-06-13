@@ -1,10 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
 from django.views import generic
 from rest_framework import viewsets, filters
 
 from acros.forms import EditForm, AddForm
 from acros.models import Acronym, Tag
 from acros.serializers import AcronymSerializer, AcronymListSerializer, TagSerializer
+from acros.utils.assets import get_css
 
 
 class IndexView(generic.TemplateView):
@@ -79,3 +81,16 @@ class AcronymViewSet(viewsets.ReadOnlyModelViewSet):
 class TagViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Tag.objects.all().order_by("name")
     serializer_class = TagSerializer
+
+
+##### DEBUG views #####
+
+
+def debug_css(request):
+    css, source_map = get_css(debug=True)
+    return HttpResponse(css, content_type="text/css")
+
+
+def debug_css_sourcemap(request):
+    css, source_map = get_css(debug=True)
+    return HttpResponse(source_map, content_type="application/json")

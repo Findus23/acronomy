@@ -10,10 +10,12 @@ new Autocomplete('#autocomplete', {
     // results. In this case we're using
     // the Wikipedia search API.
     search: input => {
-        const url = "/api/acronym/?search=" + input
+
+        const acroSearch = input.split(':')[0];
+        const url = "/api/acronym/?search=" + acroSearch
 
         return new Promise(resolve => {
-            if (input.length < 1) {
+            if (acroSearch.length < 1) {
                 return resolve([])
             }
 

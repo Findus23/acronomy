@@ -46,9 +46,12 @@
 
 
 .accountStatus {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+  }
 }
 
 h1 {

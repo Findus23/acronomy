@@ -9,7 +9,11 @@
   <title>{% block title %}Acronomy{% endblock %}</title>
 
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="{% static "css/main.css" %}">
+  {% if debug %}
+    <link rel="stylesheet" href="{% url "css" %}">
+  {% else %}
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+  {% endif %}
   {% block extra_head %}
   {% endblock %}
 </head>
@@ -29,7 +33,8 @@
   {% block heading %}
   {% endblock %}
   <div id="autocomplete" class="autocomplete">
-    <input class="autocomplete-input" {% block searchInput %}{% endblock %}/>
+    <input placeholder="Search for an acronym"
+           class="autocomplete-input" {% block searchInput %}{% endblock %}/>
     <ul class="autocomplete-result-list"></ul>
   </div>
 
