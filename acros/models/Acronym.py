@@ -43,10 +43,11 @@ class Acronym(models.Model):
         ordering = ["name"]
 
     def clean(self):
-        new_slug = slugify(self.name)
-        try:
-            found = Acronym.objects.get(slug=new_slug)
-        except Acronym.DoesNotExist:
-            found = False
-        if found:
-            raise ValidationError(f"slug '{new_slug}' already exists")
+        if not self.id:
+            new_slug = slugify(self.name)
+            try:
+                found = Acronym.objects.get(slug=new_slug)
+            except Acronym.DoesNotExist:
+                found = False
+            if found:
+                raise ValidationError(f"slug '{new_slug}' already exists")
