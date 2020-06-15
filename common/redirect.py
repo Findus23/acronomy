@@ -16,6 +16,5 @@ class NoTrailingSlashMiddleware:
         ):
             new_url = old_url[:-1]
             return HttpResponseRedirect(new_url)
-        response = self.get_response(request)
 
-        return response
+        return self.get_response(request)
