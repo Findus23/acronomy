@@ -9,9 +9,13 @@ from acros.models import Acronym, Tag
 from acros.serializers import AcronymSerializer, AcronymListSerializer, TagSerializer
 from acros.utils.assets import get_css
 
+handler404 = 'acros.views.PageNotFoundView'
 
 class IndexView(generic.TemplateView):
     template_name = "acros/index.html"
+
+class PageNotFoundView(generic.TemplateView):
+    template_name = "404.html"
 
 
 class OverView(generic.ListView):
@@ -27,12 +31,13 @@ class DetailView(generic.DetailView):
     model = Acronym
 
 
-class EditView(LoginRequiredMixin, generic.UpdateView):
+class EditView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     template_name = 'acros/edit.html'
     context_object_name = 'acro'
     model = Acronym
     # fields = ['name', 'full_name', "description_md", "tags"]
     form_class = EditForm
+    success_message = 'Acronym "%(name)s" was edited successfully'
 
 
 class AddView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
@@ -54,6 +59,7 @@ class TagAcroView(generic.ListView):
     template_name = "acros/tagacro.html"
     context_object_name = 'acros'
     ordering = "name"
+    allow_empty = False
 
     def get_queryset(self):
         return Acronym.objects.filter(tags__slug__exact=self.kwargs['slug'])
