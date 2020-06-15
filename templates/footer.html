@@ -1,7 +1,11 @@
+{% load version %}
 <footer>
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link" href="https://github.com/Findus23/acronomy/" target="_blank" rel="noopener">Source</a>
+      <a class="nav-link" href="https://github.com/Findus23/acronomy/tree/{% commit_id %}"
+         target="_blank" rel="noopener" title="{% commit_id %}">
+        Source
+      </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="https://lw1.at/i">Privacy</a>
