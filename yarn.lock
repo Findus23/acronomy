@@ -3,14 +3,14 @@
 
 
 "@trevoreyre/autocomplete-js@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@trevoreyre/autocomplete-js/-/autocomplete-js-2.1.1.tgz#7a4af9b8612c852e05f2e33a4649ad1353af4a86"
-  integrity sha512-G9I3Z3jYfVYUkz7XS49Mp/LMLaVcW1wVj4V/COqHq4Nk3rOgGG5ONlLGzCKpElqTIPm5p+7V7/92Mo/xsvPRvQ==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@trevoreyre/autocomplete-js/-/autocomplete-js-2.2.0.tgz#54a4dcf30a91782f58478f5d8d402f5f46433df5"
+  integrity sha512-emHJWZBPWdB5iDW9MrLSfq3lopyDlIhYXa8ttnCX9kQp1g+G0Lmfu/v6fW2aggjAfsZX8ksuZSG65o+EdwoN0g==
 
 "@yaireo/tagify@^3.9.3":
-  version "3.9.3"
-  resolved "https://registry.yarnpkg.com/@yaireo/tagify/-/tagify-3.9.3.tgz#a6671345b9a3a38eb4a7b18728db2526023e1662"
-  integrity sha512-cS6WyMYY4YD8Op6qwsm1jE2zIxf9RQGJvYkuye4hOzgm4p77aZyByfz1+hmpAWXJZStSpff2iDn7aOB97Smoeg==
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@yaireo/tagify/-/tagify-3.11.1.tgz#eb5b70ec9fbe44e8d38a15bf194f150b0f3588d1"
+  integrity sha512-NfUak7TJ3Co8YqQElcEiUmPpyWk2ut6G/Z5sy7rQLnCxziVEBS2WC/UfTsfq1XV/FCs4c9y9WNALnZ6nXUZzOA==
 
 bootstrap@^4.5.0:
   version "4.5.0"
