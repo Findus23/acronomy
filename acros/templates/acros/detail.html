@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load version %}
 {% load static %}
 
 
@@ -13,7 +12,6 @@
 
 {% block content %}
   {% if acro.description_html %}
-    {% commit_id %}
     <div class="description">
       {{ acro.description_html|safe }}
     </div>
