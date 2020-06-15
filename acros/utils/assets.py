@@ -17,7 +17,7 @@ def get_css(debug=False):
         output_style="compressed",
         include_paths=[str(inputdir), str(basedir)],
         source_map_filename=sourcemap_name,
-        source_map_contents=debug
+        source_map_contents=True
     )
     return css, sourcemap_text
 
