@@ -112,45 +112,48 @@
         </div>
       </div>
     {% endfor %}
-    {#    {% if user.is_authenticated %}#}
-    {#      <div class="mb-4 col-md-4">#}
-    {#        <div class="card">#}
-    {#          <div class="card-body">#}
-    {#            <div class="btn-group-vertical" role="group">#}
-    {#              <button data-toggle="collapse" href="#collapseAddWikipediaForm" class="btn btn-secondary" role="button"#}
-    {#                      aria-expanded="false" aria-controls="collapseAddWikipediaForm">#}
-    {#                add Wikipedia Article#}
-    {#              </button>#}
-    {#              <button data-toggle="collapse" href="#collapseAddPaperForm" class="btn btn-secondary" role="button"#}
-    {#                      aria-expanded="false" aria-controls="collapseAddPaperForm">#}
-    {#                add Reference Paper#}
-    {#              </button>#}
-    {#              <button data-toggle="collapse" href="#collapseAddWebsiteForm" class="btn btn-secondary" role="button"#}
-    {#                      aria-expanded="false" aria-controls="collapseAddWebsiteForm">#}
-    {#                add Website Link#}
-    {#              </button>#}
-    {#            </div>#}
-    {#          </div>#}
-    {#          <form class="card-footer accordion" id="addAccordion">#}
-    {#            <div id="collapseAddWikipediaForm" class="collapse form-group" data-parent="#addAccordion">#}
-    {#              <label for="wikiTitle">Wikipedia Title</label>#}
-    {#              <input type="text" class="form-control" name="wiki_title" id="wikiTitle">#}
-    {#            </div>#}
-    {#            <div id="collapseAddPaperForm" class="collapse form-group" data-parent="#addAccordion">#}
-    {#              <label for="paperBibcode">Bibcode</label>#}
-    {#              <input type="text" class="form-control" name="paper_bibcode" id="paperBibcode">#}
-    {#            </div>#}
-    {#            <div id="collapseAddWebsiteForm" class="collapse form-group" data-parent="#addAccordion">#}
-    {#              <label for="websiteUrl">URL</label>#}
-    {#              <input type="url" class="form-control" name="website_url" id="websiteUrl">#}
-    {#            </div>#}
-    {#          </form>#}
-    {#        </div>#}
-    {#      </div>#}
-    {#    {% endif %}#}
+    {% comment %}
+        {% if user.is_authenticated %}
+          <div class="mb-4 col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="btn-group-vertical" role="group">
+                  <button data-toggle="collapse" href="#collapseAddWikipediaForm" class="btn btn-secondary" role="button"
+                          aria-expanded="false" aria-controls="collapseAddWikipediaForm">
+                    add Wikipedia Article
+                  </button>
+                  <button data-toggle="collapse" href="#collapseAddPaperForm" class="btn btn-secondary" role="button"
+                          aria-expanded="false" aria-controls="collapseAddPaperForm">
+                    add Reference Paper
+                  </button>
+                  <button data-toggle="collapse" href="#collapseAddWebsiteForm" class="btn btn-secondary" role="button"
+                          aria-expanded="false" aria-controls="collapseAddWebsiteForm">
+                    add Website Link
+                  </button>
+                </div>
+              </div>
+              <form class="card-footer accordion" id="addAccordion">
+                <div id="collapseAddWikipediaForm" class="collapse form-group" data-parent="#addAccordion">
+                  <label for="wikiTitle">Wikipedia Title</label>
+                  <input type="text" class="form-control" name="wiki_title" id="wikiTitle">
+                </div>
+                <div id="collapseAddPaperForm" class="collapse form-group" data-parent="#addAccordion">
+                  <label for="paperBibcode">Bibcode</label>
+                  <input type="text" class="form-control" name="paper_bibcode" id="paperBibcode">
+                </div>
+                <div id="collapseAddWebsiteForm" class="collapse form-group" data-parent="#addAccordion">
+                  <label for="websiteUrl">URL</label>
+                  <input type="url" class="form-control" name="website_url" id="websiteUrl">
+                </div>
+              </form>
+            </div>
+          </div>
+        {% endif %}
+  {% endcomment %}
+
   </div>
   {% if user.is_staff %}
     <a class="btn btn-outline-secondary" href="{% url 'admin:acros_acronym_change' acro.id %}">Admin-Edit</a>
   {% endif %}
-    <a class="btn btn-outline-secondary" href="{% url 'edit' acro.slug %}">Edit</a>
+  <a class="btn btn-outline-secondary" href="{% url 'edit' acro.slug %}">Edit</a>
 {% endblock %}

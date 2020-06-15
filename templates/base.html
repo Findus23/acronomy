@@ -21,15 +21,6 @@
 {#        <div class="container {{ referrers is defined ? "edit" }}">#}
 <div class="container {% block containerclasses %}{% endblock %}">
   {% bootstrap_messages %}
-  {% if user.is_authenticated %}
-    <div class="accountStatus">
-      Hello {{ user.get_username }}, <a href="{% url 'logout' %}">Log out</a>
-    </div>
-  {% else %}
-    <div class="accountStatus">
-      <a href="{% url 'login' %}">Log in</a>
-    </div>
-  {% endif %}
   {% block heading %}
   {% endblock %}
   <div id="autocomplete" class="autocomplete">
@@ -40,7 +31,9 @@
 
   {% block content %}
   {% endblock %}
+
 </div>
+{% include 'footer.html' %}
 <script src="{% static "libs/jquery.slim.min.js" %}"></script>
 <script src="{% static "libs/popper.min.js" %}"></script>
 <script src="{% static "libs/bootstrap.min.js" %}"></script>
