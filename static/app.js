@@ -44,9 +44,7 @@ document.querySelector("form").addEventListener("submit", function () {
     const list = JSON.parse(input.value).map(function (item) {
         return item['value'];
     })
-    input.value = JSON.parse(input.value).map(function (item) {
-        return item['value'];
-    })
+    input.value = list.join(",")
     console.log(input.value)
     return false;
 })

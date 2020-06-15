@@ -1,4 +1,4 @@
-def parse_tags(tagstring):
+def parse_tags_complex(tagstring):
     """
     from https://github.com/jazzband/django-taggit/blob/master/taggit/utils.py
     django-taggit by Alex Gaynor under BSD License
@@ -69,6 +69,11 @@ def parse_tags(tagstring):
     words.sort()
     return words
 
+
+def parse_tags(tagstring):
+    return tagstring.split(",")
+
+
 def split_strip(string, delimiter=","):
     """
     from https://github.com/jazzband/django-taggit/blob/master/taggit/utils.py
@@ -83,6 +88,7 @@ def split_strip(string, delimiter=","):
 
     words = [w.strip() for w in string.split(delimiter)]
     return [w for w in words if w]
+
 
 def edit_string_for_tags(tags):
     """
