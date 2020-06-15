@@ -47,6 +47,7 @@ class TagListView(generic.ListView):
     model = Tag
     context_object_name = 'tags'
     ordering = "name"
+    queryset = Tag.objects.filter(acronyms__isnull=False)
 
 
 class TagAcroView(generic.ListView):
