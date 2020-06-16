@@ -14,10 +14,10 @@ class WikipediaLink(models.Model):
     title = models.CharField(max_length=200)
     extract = models.TextField(blank=True)
     extract_html = models.TextField(blank=True)
-    thumbnail = models.ImageField(upload_to="wikipedia_thumbnails/", blank=True,
+    thumbnail = models.ImageField(upload_to="wikipedia_thumbnails/", blank=True, null=True,
                                   height_field="thumbnail_height", width_field="thumbnail_width")
-    thumbnail_width = models.IntegerField(blank=True, editable=False)
-    thumbnail_height = models.IntegerField(blank=True, editable=False)
+    thumbnail_width = models.IntegerField(blank=True, editable=False, null=True)
+    thumbnail_height = models.IntegerField(blank=True, editable=False, null=True)
     thumbnail_title = models.CharField(max_length=100, null=True, blank=True)
     thumbnail_caption = models.CharField(max_length=1000, null=True, blank=True)
     timestamp = models.DateTimeField(blank=True)
