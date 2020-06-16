@@ -28,13 +28,14 @@ class WikipediaLink(models.Model):
         if not self.fetched:
             self.extract, self.extract_html, self.timestamp, thumbnail_url, \
             self.thumbnail_title, self.thumbnail_caption = fetch_wikipedia_summary(self.title)
-            with TemporaryFile("rb+") as fd:
-                r = requests.get(thumbnail_url)
-                filename = thumbnail_url.split("/")[-1]
-                for chunk in r.iter_content(chunk_size=128):
-                    fd.write(chunk)
-                image_file = File(fd)
-                self.thumbnail.save(filename, image_file, save=False)
+            if thumbnail_url:
+                with TemporaryFile("rb+") as fd:
+                    r = requests.get(thumbnail_url)
+                    filename = thumbnail_url.split("/")[-1]
+                    for chunk in r.iter_content(chunk_size=128):
+                        fd.write(chunk)
+                    image_file = File(fd)
+                    self.thumbnail.save(filename, image_file, save=False)
             self.fetched = True
 
         super(WikipediaLink, self).save(*args, **kwargs)
