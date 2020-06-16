@@ -36,11 +36,13 @@
     {% for link in acro.wiki_articles.all %}
       <div class="mb-4  col-md-4">
         <div class="card">
-          <a href="{{ link.thumbnail_wiki_url }}">
-            <img src="{{ link.thumbnail.url }}" class="card-img-top"
-                 width="{{ link.thumbnail_width }}" height="{{ link.thumbnail_height }}"
-                 {% if link.thumbnail_caption %}title="{{ link.thumbnail_caption }}"{% endif %}>
-          </a>
+          {% if link.thumbnail %}
+            <a href="{{ link.thumbnail_wiki_url }}">
+              <img src="{{ link.thumbnail.url }}" class="card-img-top"
+                   width="{{ link.thumbnail_width }}" height="{{ link.thumbnail_height }}"
+                   {% if link.thumbnail_caption %}title="{{ link.thumbnail_caption }}"{% endif %}>
+            </a>
+          {% endif %}
           <div class="card-body">
             <h5 class="card-title">{{ link.title }}</h5>
             {#<p class="card-text">{{ link.extract_html|safe }}</p>#}
