@@ -18,7 +18,7 @@ def fetch_wikipedia_summary(title: str):
         image_title = image_caption = None
     return (
         data["extract"], data["extract_html"], data["timestamp"],
-        data["thumbnail"]["source"],
+        data["thumbnail"]["source"] if "thumbnail" in data else None,
         image_title, image_caption
     )
 
