@@ -18,7 +18,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('', include('django.contrib.auth.urls')),
+    path('account/', include('django.contrib.auth.urls')),
     path("sitemap.xml", cache_page(60 * 15)(sitemap), {"sitemaps": sitemaps}, name="sitemap"),
     path('api/', include(router.urls)),
     path('', views.IndexView.as_view(), name='index'),
