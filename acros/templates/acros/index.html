@@ -5,7 +5,41 @@
 {% endblock %}
 
 {% block content %}
-{#<h1>Search</h1>#}
+
+  <div class="row">
+    <div class="col-sm">
+      <div class="card ">
+        <div class="card-header">
+          Acronyms of the Day
+        </div>
+        <div class="card-body">
+          <ul class="nav aotd">
+            {% for aotd in acronyms_of_the_day %}
+              <li class="nav-item">
+                <a href="{% url "detail" aotd.acronym.slug %}" class="nav-link" title="{{ aotd.acronym.full_name }}">
+                  {{ aotd.acronym.name }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <a class="card-footer" href="{% url "overview" %}">
+          View all {{ num_acronyms }} acronyms
+        </a>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card ">
+        <div class="card-header">
+          Popular Acronyms
+        </div>
+        <div class="card-body">
+          Coming soon&hellip;
+        </div>
+      </div>
+    </div>
+
+  </div>
 {% endblock %}
 
 {% block searchInput %}autofocus{% endblock %}

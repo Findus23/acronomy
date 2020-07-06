@@ -11,6 +11,7 @@ class NoTrailingSlashMiddleware:
         if (
                 old_url.endswith('/')
                 and not old_url.startswith("/admin")
+                and not old_url.startswith("/__debug__")
                 and not old_url.startswith("/account")
                 and not old_url.startswith("/api")
                 and not old_url == "/"

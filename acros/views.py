@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponse
@@ -5,14 +7,23 @@ from django.views import generic
 from rest_framework import viewsets, filters
 
 from acros.forms import EditForm, AddForm
-from acros.models import Acronym, Tag
+from acros.models import Acronym, Tag, AcroOfTheDay
 from acros.serializers import AcronymSerializer, AcronymListSerializer, TagSerializer
 from acros.utils.assets import get_css
 
 handler404 = 'acros.views.PageNotFoundView'
 
+
 class IndexView(generic.TemplateView):
     template_name = "acros/index.html"
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        aotd = AcroOfTheDay.objects.filter(date=date.today()).select_related('acronym')
+        data['acronyms_of_the_day'] = aotd
+        data['num_acronyms'] = Acronym.objects.all().count()
+        return data
+
 
 class PageNotFoundView(generic.TemplateView):
     template_name = "404.html"
