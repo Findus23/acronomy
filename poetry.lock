@@ -286,6 +286,19 @@ testing = ["coverage", "pyyaml"]
 
 [[package]]
 category = "main"
+description = "katex extension for Python Markdown"
+name = "markdown-katex"
+optional = false
+python-versions = ">=2.7"
+version = "202006.1021"
+
+[package.dependencies]
+Markdown = ">=3.0"
+pathlib2 = "*"
+setuptools = "*"
+
+[[package]]
+category = "main"
 description = "Rolling backport of unittest.mock for all Pythons"
 name = "mock"
 optional = false
@@ -296,6 +309,17 @@ version = "4.0.2"
 build = ["twine", "wheel", "blurb"]
 docs = ["sphinx"]
 test = ["pytest", "pytest-cov"]
+
+[[package]]
+category = "main"
+description = "Object-oriented filesystem paths"
+name = "pathlib2"
+optional = false
+python-versions = "*"
+version = "2.3.5"
+
+[package.dependencies]
+six = "*"
 
 [[package]]
 category = "main"
@@ -426,7 +450,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "cdcdcb111c5b517e781302c281d1bc1af54fb423475aa09b2632b407692d155c"
+content-hash = "4043edd86c5dcce243e6501dcf9cc90726c2eba313efa5341613cda12bb40735"
 python-versions = ">=3.7,<4.0"
 
 [metadata.files]
@@ -585,9 +609,17 @@ markdown = [
     {file = "Markdown-3.2.2-py3-none-any.whl", hash = "sha256:c467cd6233885534bf0fe96e62e3cf46cfc1605112356c4f9981512b8174de59"},
     {file = "Markdown-3.2.2.tar.gz", hash = "sha256:1fafe3f1ecabfb514a5285fca634a53c1b32a81cb0feb154264d55bf2ff22c17"},
 ]
+markdown-katex = [
+    {file = "markdown-katex-202006.1021.tar.gz", hash = "sha256:71d5525c8cf0510717ca79a5b80b82d2f7a1fc419333f74cfc3074429a177331"},
+    {file = "markdown_katex-202006.1021-py2.py3-none-any.whl", hash = "sha256:82b5fedb866f8fc2d66907d9046c936a2e7799e669b31ece99469b6e1e287de2"},
+]
 mock = [
     {file = "mock-4.0.2-py3-none-any.whl", hash = "sha256:3f9b2c0196c60d21838f307f5825a7b86b678cedc58ab9e50a8988187b4d81e0"},
     {file = "mock-4.0.2.tar.gz", hash = "sha256:dd33eb70232b6118298d516bbcecd26704689c386594f0f3c4f13867b2c56f72"},
+]
+pathlib2 = [
+    {file = "pathlib2-2.3.5-py2.py3-none-any.whl", hash = "sha256:0ec8205a157c80d7acc301c0b18fbd5d44fe655968f5d947b6ecef5290fc35db"},
+    {file = "pathlib2-2.3.5.tar.gz", hash = "sha256:6cd9a47b597b37cc57de1c05e56fb1a1c9cc9fab04fe78c29acd090418529868"},
 ]
 pillow = [
     {file = "Pillow-7.2.0-cp35-cp35m-macosx_10_10_intel.whl", hash = "sha256:1ca594126d3c4def54babee699c055a913efb01e106c309fa6b04405d474d5ae"},

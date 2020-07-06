@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_head %}
+  {% if "katex-display" in acro.description_html %}
+    <!-- Only embed katex if there is an equation on the page -->
+    <link rel="stylesheet" href="{% static "libs/katex.min.css" %}">
+  {% endif %}
+{% endblock %}
 
 {% block title %}{{ acro.name }}: {{ acro.full_name }} &dash; Acronomy{% endblock %}
 

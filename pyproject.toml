@@ -19,6 +19,7 @@ gunicorn = "^20.0.4"
 beautifulsoup4 = "^4.9.1"
 django-bootstrap4 = "^2.0.0"
 libsass = "^0.20.0"
+markdown-katex = "^202006.1021"
 
 [tool.poetry.dev-dependencies]
 bpython = "^0.19"

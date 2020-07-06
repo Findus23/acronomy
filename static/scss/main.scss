@@ -184,3 +184,10 @@ footer {
 .aotd {
   flex-direction: column;
 }
+
+.katex img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: inherit;
+}
