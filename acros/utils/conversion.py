@@ -7,6 +7,7 @@ def md_to_html(md: str) -> str:
         output_format="html5",
         extensions=[
             "nl2br",
+            "acros.utils.wikilinks"
         ]
     )
     return html
