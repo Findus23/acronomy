@@ -6,7 +6,7 @@ def fetch_wikipedia_summary(title: str):
     r = requests.get("https://en.wikipedia.org/api/rest_v1/page/summary/" + title)
     r.raise_for_status()
     data = r.json()
-    print(data)
+    # print(data)
 
     r2 = requests.get("https://en.wikipedia.org/api/rest_v1/page/media-list/" + title)
     r2.raise_for_status()

@@ -26,9 +26,9 @@
       Add Reference
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-      <a class="dropdown-item" href="#">Wikipedia Entry</a>
-      <a class="dropdown-item" href="#">Paper</a>
-      <a class="dropdown-item" href="#">Website</a>
+      <a class="dropdown-item" href="{% url "add_wikipedia" acro.slug %}">Wikipedia Entry</a>
+      <a class="dropdown-item" href="{% url "add_paper" acro.slug %}">Paper</a>
+      <a class="dropdown-item" href="{% url "add_weblink" acro.slug %}">Website</a>
     </div>
   </li>
 {% endblock %}

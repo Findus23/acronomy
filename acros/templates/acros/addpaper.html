@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+  <h1>Add Paper Reference</h1>
+{% endblock %}
+
+{% block content %}
+  <p>
+    Search for the paper on <a href="https://ui.adsabs.harvard.edu/" target="_blank" rel="noopener">ADS</a>
+    and then copy the bibcode (e.g. <code>2018A&A...616A...1G </code>) into this form:
+  </p>
+  {% include "acros/addform.html" %}
+{% endblock %}
+

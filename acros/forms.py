@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm, TextInput, CharField
 
-from acros.models import Acronym, Tag
+from acros.models import Acronym, Tag, WikipediaLink, PaperReference, Weblink
 from acros.utils.tags import parse_tags, edit_string_for_tags
 
 
@@ -60,10 +60,22 @@ class AddForm(ModelForm):
         fields = ['name', 'full_name', "description_md", "tags"]
 
 
-class AddWikipediaForm(ModelForm):
-    tags = TagField()
-
+class WikipediaForm(ModelForm):
     class Meta:
-        model = Acronym
+        model = WikipediaLink
 
-        fields = ['name', 'full_name', "description_md", "tags"]
+        fields = ['title']
+
+
+class PaperForm(ModelForm):
+    class Meta:
+        model = PaperReference
+
+        fields = ['bibcode']
+
+
+class WeblinkForm(ModelForm):
+    class Meta:
+        model = Weblink
+
+        fields = ['url']
