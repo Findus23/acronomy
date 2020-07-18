@@ -21,6 +21,7 @@ class Acronym(models.Model):
     description_html = models.TextField(editable=False)
     history = HistoricalRecords(excluded_fields=["created_date"])
     tags = models.ManyToManyField(Tag, related_name="acronyms")
+    stub = models.BooleanField(default=True, help_text="check if this is a minimal entry that should be extended")
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 

@@ -48,7 +48,7 @@ class EditForm(ModelForm):
 
     class Meta:
         model = Acronym
-        fields = ['name', 'full_name', "description_md", "tags"]
+        fields = ['name', 'full_name', "description_md", "stub", "tags"]
 
 
 class AddForm(ModelForm):
@@ -57,7 +57,7 @@ class AddForm(ModelForm):
     class Meta:
         model = Acronym
 
-        fields = ['name', 'full_name', "description_md", "tags"]
+        fields = ['name', 'full_name', "description_md", "stub", "tags"]
 
 
 class WikipediaForm(ModelForm):
