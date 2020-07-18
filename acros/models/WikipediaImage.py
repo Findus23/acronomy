@@ -15,7 +15,7 @@ class WikipediaImage(models.Model):
     thumb_height = models.IntegerField(blank=True, editable=False, null=True)
     imageurl = models.URLField()
     caption = models.CharField(max_length=1000, null=True, blank=True)
-    credit = models.TextField()
+    credit = models.TextField(null=True, blank=True)
     artist = models.TextField()
     license_short_name = models.TextField()
     attribution = models.TextField(null=True, blank=True)
