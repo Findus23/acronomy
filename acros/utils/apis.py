@@ -106,8 +106,9 @@ class WikipediaImageAPIObject:
             return clean_html(self.extmetadata["Credit"]["value"])
 
     @property
-    def artist(self) -> str:
-        return clean_html(self.extmetadata["Artist"]["value"])
+    def artist(self) -> Optional[str]:
+        if "Artist" in self.extmetadata:
+            return clean_html(self.extmetadata["Artist"]["value"])
 
     @property
     def license_short_name(self) -> str:

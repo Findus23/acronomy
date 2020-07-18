@@ -16,7 +16,7 @@ class WikipediaImage(models.Model):
     imageurl = models.URLField()
     caption = models.CharField(max_length=1000, null=True, blank=True)
     credit = models.TextField(null=True, blank=True)
-    artist = models.TextField()
+    artist = models.TextField(null=True, blank=True)
     license_short_name = models.TextField()
     attribution = models.TextField(null=True, blank=True)
     license_url = models.URLField(null=True, blank=True)
