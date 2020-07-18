@@ -13,5 +13,5 @@ class Command(BaseCommand):
             if link.fetched:
                 self.stdout.write(link.title)
                 link.fetched = False
-                update_change_reason(link, "refetch_wikipedia command")
+                # update_change_reason(link, "refetch_wikipedia command")
                 link.save()
