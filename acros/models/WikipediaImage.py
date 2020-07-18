@@ -26,7 +26,8 @@ class WikipediaImage(models.Model):
 
     def save(self, *args, **kwargs):
         img = WikipediaImageAPIObject(self.filename)
-        self.thumbnail.delete(save=False)
+        if self.thumbnail:
+            self.thumbnail.delete(save=False)
         print("saving")
         with TemporaryFile("rb+") as fd:
             r = requests.get(img.thumburl)
