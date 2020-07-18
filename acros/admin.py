@@ -53,13 +53,19 @@ class WikipediaAdmin(SimpleHistoryAdmin):
     # readonly_fields = ["thumbnail_height", "thumbnail_width"]
     ...
 
+
+class WikipediaImageAdmin(admin.ModelAdmin):
+    readonly_fields = ["thumbnail", "thumb_width", "thumb_height", "imageurl", "credit", "artist", "license_short_name",
+                       "attribution", "license_url", "attribution_required", "copyrighted", "timestamp"]
+
+
 admin.site.register(WikipediaLink, WikipediaAdmin)
 admin.site.register(Weblink, LinkAdmin)
 admin.site.register(PaperReference, PaperAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Acronym, AcronymAdmin)
 admin.site.register(Host)
-admin.site.register(WikipediaImage)
+admin.site.register(WikipediaImage, WikipediaImageAdmin)
 
-admin.site.site_header="Acronomy Administration"
-admin.site.site_title="Acronomy Administration"
+admin.site.site_header = "Acronomy Administration"
+admin.site.site_title = "Acronomy Administration"
