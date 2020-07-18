@@ -9,7 +9,7 @@ manage="sudo -u acronomy $python manage.py"
 git pull
 
 $manage scss
-$manage collectstatic
+$manage collectstatic --noinput
 $manage migrate
 
 sudo systemctl reload acronomy.service
