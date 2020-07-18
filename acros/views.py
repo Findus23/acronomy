@@ -80,7 +80,7 @@ class AddPaperView(AddReferenceView):
     template_name = "acros/addpaper.html"
     form_class = PaperForm
     model = PaperReference
-    success_message = 'Paper Reference "%(title)s" was created successfully'
+    success_message = 'Paper Reference "%(bibcode)s" was created successfully'
 
 
 class AddWeblinkView(AddReferenceView):
