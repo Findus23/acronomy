@@ -2,7 +2,7 @@ from django.contrib import admin
 # Register your models here.
 from simple_history.admin import SimpleHistoryAdmin
 
-from acros.models import Acronym, Weblink, PaperReference, WikipediaLink, Tag, Host
+from acros.models import Acronym, Weblink, PaperReference, WikipediaLink, Tag, Host, WikipediaImage
 
 
 class OwnInline(admin.TabularInline):
@@ -50,8 +50,8 @@ class LinkAdmin(SimpleHistoryAdmin):
 
 
 class WikipediaAdmin(SimpleHistoryAdmin):
-    readonly_fields = ["thumbnail_height", "thumbnail_width"]
-
+    # readonly_fields = ["thumbnail_height", "thumbnail_width"]
+    ...
 
 admin.site.register(WikipediaLink, WikipediaAdmin)
 admin.site.register(Weblink, LinkAdmin)
@@ -59,6 +59,7 @@ admin.site.register(PaperReference, PaperAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Acronym, AcronymAdmin)
 admin.site.register(Host)
+admin.site.register(WikipediaImage)
 
 admin.site.site_header="Acronomy Administration"
 admin.site.site_title="Acronomy Administration"

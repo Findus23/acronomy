@@ -1,12 +1,8 @@
-from tempfile import TemporaryFile
-
-import requests
-from django.core.files import File
 from django.db import models
 from simple_history.models import HistoricalRecords
 
-from acros.models import Acronym
-from acros.utils.apis import fetch_wikipedia_summary
+from acros.models import Acronym, WikipediaImage
+from acros.utils.apis import WikipediaAPISummary
 
 
 class WikipediaLink(models.Model):
@@ -14,28 +10,27 @@ class WikipediaLink(models.Model):
     title = models.CharField(max_length=200)
     extract = models.TextField(blank=True)
     extract_html = models.TextField(blank=True)
-    thumbnail = models.ImageField(upload_to="wikipedia_thumbnails/", blank=True, null=True,
-                                  height_field="thumbnail_height", width_field="thumbnail_width")
-    thumbnail_width = models.IntegerField(blank=True, editable=False, null=True)
-    thumbnail_height = models.IntegerField(blank=True, editable=False, null=True)
-    thumbnail_title = models.CharField(max_length=100, null=True, blank=True)
-    thumbnail_caption = models.CharField(max_length=1000, null=True, blank=True)
+    thumbnail = models.ForeignKey(WikipediaImage, on_delete=models.CASCADE, related_name="wiki_articles",
+                                  blank=True, null=True)
     timestamp = models.DateTimeField(blank=True)
     fetched = models.BooleanField(default=False)
     history = HistoricalRecords()
 
     def save(self, *args, **kwargs):
         if not self.fetched:
-            self.extract, self.extract_html, self.timestamp, thumbnail_url, \
-            self.thumbnail_title, self.thumbnail_caption = fetch_wikipedia_summary(self.title)
-            if thumbnail_url:
-                with TemporaryFile("rb+") as fd:
-                    r = requests.get(thumbnail_url)
-                    filename = thumbnail_url.split("/")[-1]
-                    for chunk in r.iter_content(chunk_size=128):
-                        fd.write(chunk)
-                    image_file = File(fd)
-                    self.thumbnail.save(filename, image_file, save=False)
+            summary = WikipediaAPISummary(self.title)
+            self.extract = summary.extract
+            self.extract_html = summary.extract_html
+            self.timestamp = summary.timestamp
+            self.title = summary.title
+            if summary.image:
+                filename = summary.image.split("/")[-1]
+                try:
+                    thumbnail = WikipediaImage.objects.get(filename=filename)
+                except WikipediaImage.DoesNotExist:
+                    thumbnail = WikipediaImage.objects.create(filename=filename)
+                thumbnail.save()
+                self.thumbnail = thumbnail
             self.fetched = True
 
         super(WikipediaLink, self).save(*args, **kwargs)
@@ -43,10 +38,6 @@ class WikipediaLink(models.Model):
     @property
     def url(self):
         return f"https://en.wikipedia.org/wiki/{self.title}"
-
-    @property
-    def thumbnail_wiki_url(self):
-        return f"https://en.wikipedia.org/wiki/{self.thumbnail_title}"
 
     def __str__(self):
         return self.title

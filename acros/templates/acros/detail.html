@@ -62,9 +62,8 @@
         <div class="card">
           {% if link.thumbnail %}
             <a href="{{ link.url }}">
-              <img src="{{ link.thumbnail.url }}" class="card-img-top"
-                   width="{{ link.thumbnail_width }}" height="{{ link.thumbnail_height }}"
-                   {% if link.thumbnail_caption %}title="{{ link.thumbnail_caption }}"{% endif %}>
+              <img src="{{ link.thumbnail.thumbnail.url }}" class="card-img-top"
+                   width="{{ link.thumbnail.thumbnail_width }}" height="{{ link.thumbnail.thumbnail_height }}">
             </a>
           {% endif %}
           <div class="card-body">
@@ -81,7 +80,10 @@
                title="This snippet and thumbnail is from the English Wikipedia and licensed under the CC-BY-SA 3.0 license">
               License
             </a>
-            <a href="{{ link.thumbnail_wiki_url }}" target="_blank" rel="noopener" class="text-muted">
+            <a href="{{ link.thumbnail.commons_url }}" target="_blank" rel="noopener"
+               class="text-muted"
+               data-toggle="tooltip"
+               title="by {{ link.thumbnail.artist }} under {{ link.thumbnail.license_short_name }}">
               Image-Source
             </a>
           </div>
