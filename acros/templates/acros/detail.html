@@ -22,7 +22,8 @@
     <a class="nav-item nav-link" href="{% url 'admin:acros_acronym_change' acro.id %}">Admin-Edit</a>
   {% endif %}
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false">
       Add Reference
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -60,7 +61,7 @@
       <div class="mb-4  col-md-4">
         <div class="card">
           {% if link.thumbnail %}
-            <a href="{{ link.thumbnail_wiki_url }}">
+            <a href="{{ link.url }}">
               <img src="{{ link.thumbnail.url }}" class="card-img-top"
                    width="{{ link.thumbnail_width }}" height="{{ link.thumbnail_height }}"
                    {% if link.thumbnail_caption %}title="{{ link.thumbnail_caption }}"{% endif %}>
@@ -79,6 +80,9 @@
                class="text-muted"
                title="This snippet and thumbnail is from the English Wikipedia and licensed under the CC-BY-SA 3.0 license">
               License
+            </a>
+            <a href="{{ link.thumbnail_wiki_url }}" target="_blank" rel="noopener" class="text-muted">
+              Image-Source
             </a>
           </div>
         </div>
