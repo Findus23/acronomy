@@ -1,3 +1,5 @@
+from urllib.parse import unquote
+
 from django.db import models
 from simple_history.models import HistoricalRecords
 
@@ -24,7 +26,7 @@ class WikipediaLink(models.Model):
             self.timestamp = summary.timestamp
             self.title = summary.title
             if summary.image:
-                filename = summary.image.split("/")[-1]
+                filename = unquote(summary.image.split("/")[-1])
                 try:
                     thumbnail = WikipediaImage.objects.get(filename=filename)
                 except WikipediaImage.DoesNotExist:
