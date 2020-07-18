@@ -120,7 +120,7 @@ description = "Curses-like terminal wrapper, with colored strings!"
 name = "curtsies"
 optional = false
 python-versions = "*"
-version = "0.3.2"
+version = "0.3.4"
 
 [package.dependencies]
 blessings = ">=1.5"
@@ -532,8 +532,8 @@ chardet = [
     {file = "chardet-3.0.4.tar.gz", hash = "sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"},
 ]
 curtsies = [
-    {file = "curtsies-0.3.2-py2.py3-none-any.whl", hash = "sha256:bf1a58daf255e1f16173f5fd40637c1c188626fce721f9a3cc9b6ade1e07651e"},
-    {file = "curtsies-0.3.2.tar.gz", hash = "sha256:b863246aca6a26a427dd636ea9eee1ff4d3afcf78c62049ab1a675304e3d9b95"},
+    {file = "curtsies-0.3.4-py2.py3-none-any.whl", hash = "sha256:068db8e5d8a2f23b765d648a66dfa9445cf2412177126ae946a7357ade992640"},
+    {file = "curtsies-0.3.4.tar.gz", hash = "sha256:4ca543998d8bbba7185db099f8b7bb30baeb47426f7ac1a271e4d9ca8bbb2b05"},
 ]
 django = [
     {file = "Django-3.0.8-py3-none-any.whl", hash = "sha256:5457fc953ec560c5521b41fad9e6734a4668b7ba205832191bbdff40ec61073c"},
