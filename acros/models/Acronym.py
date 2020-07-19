@@ -32,6 +32,11 @@ class Acronym(models.Model):
 
     def save(self, *args, **kwargs):
         self.description_html = md_to_html(self.description_md)
+        if not self.acro_letters:
+            self.acro_letters = [0]
+            for pos, char in enumerate(self.full_name):
+                if char == " " and pos <= len(self.full_name):
+                    self.acro_letters.append(pos + 1)
         if not self.slug:
             self.slug = slugify(self.name)
         super(Acronym, self).save(*args, **kwargs)
