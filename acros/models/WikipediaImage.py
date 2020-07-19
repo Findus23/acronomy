@@ -29,6 +29,9 @@ class WikipediaImage(models.Model):
         if self.thumbnail:
             self.thumbnail.delete(save=False)
         print("saving")
+        filename = self.filename
+        if filename.endswith(".svg"):
+            filename += ".png"
         with TemporaryFile("rb+") as fd:
             r = requests.get(img.thumburl)
             for chunk in r.iter_content(chunk_size=128):
