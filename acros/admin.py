@@ -37,6 +37,7 @@ class AcronymAdmin(SimpleHistoryAdmin):
     readonly_fields = ["slug"]
     list_display = ["name", "full_name"]
     list_filter = ["tags", "modified_date", "created_date"]
+    search_fields = ["name", "full_name", "description_md"]
     save_on_top = True
 
 
@@ -46,17 +47,23 @@ class PaperAdmin(SimpleHistoryAdmin):
 
 
 class LinkAdmin(SimpleHistoryAdmin):
+    list_display = ["title", "acronym", "url"]
+    list_filter = ["host"]
     readonly_fields = ["host"]
 
 
 class WikipediaAdmin(SimpleHistoryAdmin):
-    # readonly_fields = ["thumbnail_height", "thumbnail_width"]
+    list_display = ["title", "acronym", "thumbnail"]
+    date_hierarchy = "timestamp"
     ...
 
 
 class WikipediaImageAdmin(admin.ModelAdmin):
     readonly_fields = ["thumbnail", "thumb_width", "thumb_height", "imageurl", "credit", "artist", "license_short_name",
                        "attribution", "license_url", "attribution_required", "copyrighted", "timestamp"]
+    list_filter = ["thumb_width", "license_short_name", "attribution_required", "copyrighted"]
+    date_hierarchy = "timestamp"
+    search_fields = ["artist", "credit", "attribution"]
 
 
 admin.site.register(WikipediaLink, WikipediaAdmin)
