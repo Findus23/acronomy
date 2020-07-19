@@ -20,7 +20,7 @@ class Acronym(models.Model):
     slug = models.SlugField(null=False, unique=True)
     acro_letters = ArrayField(
         models.SmallIntegerField(),
-        null=True
+        null=True, blank=True
     )
     description_md = models.TextField(blank=True)
     description_html = models.TextField(editable=False)
