@@ -37,7 +37,7 @@ class WikipediaImage(models.Model):
             for chunk in r.iter_content(chunk_size=128):
                 fd.write(chunk)
             image_file = File(fd)
-            self.thumbnail.save(self.filename, image_file, save=False)
+            self.thumbnail.save(filename, image_file, save=False)
         self.thumb_width, self.thumb_height = img.thumb_size
         self.pageid = img.pageid
         self.imageurl = img.url
