@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import ArrayField
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
@@ -17,6 +18,10 @@ class Acronym(models.Model):
     name = models.CharField(max_length=100, validators=[valid_acronym])
     full_name = models.CharField(max_length=1000)
     slug = models.SlugField(null=False, unique=True)
+    acro_letters = ArrayField(
+        models.SmallIntegerField(),
+        null=True
+    )
     description_md = models.TextField(blank=True)
     description_html = models.TextField(editable=False)
     history = HistoricalRecords(excluded_fields=["created_date"])

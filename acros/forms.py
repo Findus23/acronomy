@@ -51,6 +51,12 @@ class EditForm(ModelForm):
         fields = ['name', 'full_name', "description_md", "stub", "tags"]
 
 
+class EditLetterForm(ModelForm):
+    class Meta:
+        model = Acronym
+        fields = ["acro_letters"]
+
+
 class AddForm(ModelForm):
     tags = TagField()
 

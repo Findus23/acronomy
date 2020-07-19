@@ -26,6 +26,7 @@ urlpatterns = [
     path('acronym/add', views.AddView.as_view(), name="add"),
     path('acronym/<str:slug>', views.DetailView.as_view(), name='detail'),
     path('acronym/<str:slug>/edit', views.EditView.as_view(), name='edit'),
+    path('acronym/<str:slug>/edit-letters', views.EditLetterView.as_view(), name='edit_letter'),
     path('acronym/<str:slug>/add/wikipedia', views.AddWikipediaView.as_view(), name='add_wikipedia'),
     path('acronym/<str:slug>/add/paper', views.AddPaperView.as_view(), name='add_paper'),
     path('acronym/<str:slug>/add/weblink', views.AddWeblinkView.as_view(), name='add_weblink'),

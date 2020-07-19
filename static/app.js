@@ -33,42 +33,78 @@ $(function () {
         autoSelect: true,
     })
     const input = document.querySelector('input[name="tags"]')
-    input.classList.remove("form-control")
+    if (input) {
+        input.classList.remove("form-control")
 
-    document.querySelector("form").addEventListener("submit", function () {
-        const list = JSON.parse(input.value).map(function (item) {
-            return item['value'];
-        })
-        input.value = list.join(",")
-        console.log(input.value)
-        return false;
-    })
-    const tagify = new Tagify(input, {
-        whitelist: [],
-        maxTags: 10,
-        dropdown: {
-            maxItems: 20,
-            enabled: 0
-        }
-    })
-    fetch("/api/tag/")
-        .then(response => response.json())
-        .then(data =>
-            data.map(function (item) {
-                return item['name'];
+        document.querySelector("form").addEventListener("submit", function () {
+            const list = JSON.parse(input.value).map(function (item) {
+                return item['value'];
             })
-        )
-        .then(data => {
-
-            tagify.settings.whitelist = data
-
+            input.value = list.join(",")
+            console.log(input.value)
+            return false;
         })
+        const tagify = new Tagify(input, {
+            whitelist: [],
+            maxTags: 10,
+            dropdown: {
+                maxItems: 20,
+                enabled: 0
+            }
+        })
+        fetch("/api/tag/")
+            .then(response => response.json())
+            .then(data =>
+                data.map(function (item) {
+                    return item['name'];
+                })
+            )
+            .then(data => {
 
-    const myCodeMirror = CodeMirror.fromTextArea(
-        document.getElementById("id_description_md"),
-        {
-            lineWrapping: true,
-            lineNumbers: true,
-        }
-    );
+                tagify.settings.whitelist = data
+
+            })
+    }
+    if (typeof CodeMirror !== "undefined") {
+        const myCodeMirror = CodeMirror.fromTextArea(
+            document.getElementById("id_description_md"),
+            {
+                lineWrapping: true,
+                lineNumbers: true,
+            }
+        );
+    }
+    const letterform = document.getElementById("letterform");
+    if (letterform) {
+        console.log("found form")
+        const letters = document.querySelectorAll("#letterselect span")
+        letters.forEach(function (letter) {
+            letter.addEventListener("click", function (e) {
+                letter.classList.toggle("als")
+            })
+        })
+        letterform.addEventListener("submit", function (e) {
+            const result = [];
+            for (let i = 0; i < letters.length; i++) {
+                const el = letters[i];
+                if (el.classList.contains("als") && el.innerText !== " ") {
+                    result.push(i);
+                }
+            }
+            const inputForm = document.getElementById("id_acro_letters");
+            inputForm.value = result.join(",");
+        });
+        const inButton = document.getElementById("initials");
+        inButton.addEventListener("click", function () {
+            letters.forEach(function (el) {
+                const content = el.innerText
+                if (content !== content.toLowerCase()) {
+                    el.classList.add("als")
+                } else {
+                    el.classList.remove("als")
+                }
+
+            })
+        });
+    }
 })

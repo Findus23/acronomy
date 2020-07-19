@@ -12,12 +12,15 @@
 
 {% block heading %}
   <h1 class="acronym">{{ acro.name }}</h1>
-  <p class="fullName">{{ acro.full_name }}</p>
+  <p class="fullName">
+      {% for letter in acro.full_name %}<span {% if forloop.counter0 in acro.acro_letters %}class="al"{% endif %}>{{ letter }}</span>{% endfor %}
+  </p>
 
 {% endblock %}
 
 {% block admin_navbar %}
   <a class="nav-item nav-link" href="{% url 'edit' acro.slug %}">Edit</a>
+  <a class="nav-item nav-link" href="{% url 'edit_letter' acro.slug %}">Letters</a>
   {% if user.is_staff %}
     <a class="nav-item nav-link" href="{% url 'admin:acros_acronym_change' acro.id %}">Admin-Edit</a>
   {% endif %}

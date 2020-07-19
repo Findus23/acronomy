@@ -65,6 +65,36 @@ h1.acronym {
 .fullName {
   text-align: center;
   font-size: 2rem;
+
+  .al {
+    transition: color .2s, text-decoration-color .2s;
+    text-decoration-line: underline;
+    text-decoration-color: white;
+  }
+
+  &:hover {
+    .al {
+      color: green;
+      text-decoration-color: green;
+    }
+  }
+}
+
+#letterselect {
+  span {
+    cursor: pointer;
+    user-select: none;
+
+    &.als {
+      color: green;
+    }
+  }
+}
+
+#letterform {
+  input[type=text] {
+    display: none;
+  }
 }
 
 /*.linkwrapper {*/

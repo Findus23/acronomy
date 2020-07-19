@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.views import generic
 from rest_framework import viewsets, filters
 
-from acros.forms import EditForm, AddForm, WikipediaForm, PaperForm, WeblinkForm
+from acros.forms import EditForm, AddForm, WikipediaForm, PaperForm, WeblinkForm, EditLetterForm
 from acros.models import Acronym, Tag, AcroOfTheDay, WikipediaLink, PaperReference, Weblink
 from acros.serializers import AcronymSerializer, AcronymListSerializer, TagSerializer
 from acros.utils.assets import get_css
@@ -50,6 +50,14 @@ class EditView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     # fields = ['name', 'full_name', "description_md", "tags"]
     form_class = EditForm
     success_message = 'Acronym "%(name)s" was edited successfully'
+
+
+class EditLetterView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
+    template_name = 'acros/edit_letter.html'
+    context_object_name = 'acro'
+    model = Acronym
+    form_class = EditLetterForm
+    success_message = 'Letters were edited successfully'
 
 
 class AddView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):

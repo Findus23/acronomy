@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block heading %}
+  <h1>Edit "{{ acro.full_name }}"</h1>
+{% endblock %}
+
+
+{% block content %}
+  <h1 id="letterselect">
+    {% for letter in acro.full_name %}<span {% if forloop.counter0 in acro.acro_letters %}class="als"{% endif %}>{{ letter }}</span>{% endfor %}
+  </h1>
+  <form method="post" id="letterform">
+    {% csrf_token %}
+    {{ form.acro_letters }}
+    <button class="btn btn-outline-primary" type="button" id="initials">Initials</button>
+    <input type="submit" class="btn btn-primary" value="Update">
+  </form>
+
+{% endblock %}
+
+{% block extra_head %}
+{% endblock %}
