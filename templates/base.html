@@ -1,14 +1,12 @@
-{% load bootstrap4 %}
-{% load static %}
 <!DOCTYPE html>
 <html lang="de">
+{% load bootstrap4 %}
+{% load static %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>{% block title %}Acronomy{% endblock %}</title>
 
-  <!-- Bootstrap -->
   {% if debug %}
     <link rel="stylesheet" href="{% url "css" %}">
   {% else %}
@@ -16,6 +14,26 @@
   {% endif %}
   {% block extra_head %}
   {% endblock %}
+  {% if not debug %}
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['disableCookies']);
+        _paq.push(['setRequestMethod', 'POST']);
+        _paq.push(["setDoNotTrack", true]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://matomo.lw1.at/";
+            _paq.push(['setTrackerUrl', u + 'statistics.php']);
+            _paq.push(['setSiteId', '29']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.src = u + 'statistics.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+  {% endif %}
 </head>
 <body>
 {% if user.is_authenticated %}
