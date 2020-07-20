@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block heading %}
+  <h1 class="acronym">Integrations</h1>
+{% endblock %}
+
+{% block content %}
+
+  <h2>KDE KRunner</h2>
+
+  <img src="{% static "images/integrations/krunner.png" %}" alt="Screenshot of KRunner">
+  <p>
+    Search for acronyms directly from the KDE KRunner launcher.
+  </p>
+  <p>
+    <a href="https://github.com/Findus23/acronomy-krunner/">Code and Setup</a>
+  </p>
+
+  <h3>More to come&hellip;</h3>
+  <p>If you are interested in building your own, take a look at the <a href="/api/">API Documentation</a>.</p>
+{% endblock %}

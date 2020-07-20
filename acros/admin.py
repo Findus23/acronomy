@@ -35,7 +35,7 @@ class AcronymAdmin(SimpleHistoryAdmin):
     ]
     filter_horizontal = ["tags"]
     readonly_fields = ["slug"]
-    list_display = ["name", "full_name"]
+    list_display = ["name", "full_name", "pageviews"]
     list_filter = ["tags", "modified_date", "created_date"]
     search_fields = ["name", "full_name", "description_md"]
     save_on_top = True

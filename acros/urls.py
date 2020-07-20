@@ -20,7 +20,7 @@ sitemaps = {
 urlpatterns = [
     path('account/', include('django.contrib.auth.urls')),
     path("sitemap.xml", cache_page(60 * 15)(sitemap), {"sitemaps": sitemaps}, name="sitemap"),
-    path('api/', include(router.urls)),
+    path('api/', include(router.urls), name="api"),
     path('', views.IndexView.as_view(), name='index'),
     path('acronym', RedirectView.as_view(pattern_name="overview")),
     path('acronym/add', views.AddView.as_view(), name="add"),
@@ -34,7 +34,7 @@ urlpatterns = [
     path('tags', views.TagListView.as_view(), name='tags'),
     path('tag', RedirectView.as_view(pattern_name="tags")),
     path('tag/<str:slug>', views.TagAcroView.as_view(), name='tag'),
-
+    path('integrations', views.IntegrationsView.as_view(), name="integrations")
 ]
 
 if settings.DEBUG:

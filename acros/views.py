@@ -22,8 +22,14 @@ class IndexView(generic.TemplateView):
         data = super().get_context_data(**kwargs)
         aotd = AcroOfTheDay.objects.filter(date=date.today()).select_related('acronym')
         data['acronyms_of_the_day'] = aotd
+        popular = Acronym.objects.filter(pageviews__gt=0).order_by('-pageviews')[:5]
+        data['popular_acronyms'] = popular
         data['num_acronyms'] = Acronym.objects.all().count()
         return data
+
+
+class IntegrationsView(generic.TemplateView):
+    template_name = "integrations.html"
 
 
 class PageNotFoundView(generic.TemplateView):

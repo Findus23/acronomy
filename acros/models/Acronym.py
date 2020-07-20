@@ -29,6 +29,7 @@ class Acronym(models.Model):
     stub = models.BooleanField(default=True, help_text="check if this is a minimal entry that should be extended")
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+    pageviews = models.IntegerField(default=0, editable=False)
 
     def save(self, *args, **kwargs):
         self.description_html = md_to_html(self.description_md)

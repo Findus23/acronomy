@@ -210,7 +210,7 @@ footer {
 }
 
 
-.aotd {
+.aotd, .popular {
   flex-direction: column;
 }
 
@@ -221,7 +221,12 @@ footer {
   height: inherit;
 }
 
-.wikilink {
+p a {
   text-decoration-line: underline;
   text-decoration-style: dashed;
+}
+
+
+.cardrow, #autocomplete {
+  margin-bottom: 2rem;
 }

@@ -34,12 +34,51 @@
           Popular Acronyms
         </div>
         <div class="card-body">
-          Coming soon&hellip;
+          <ul class="nav popular">
+            {% for acr in popular_acronyms %}
+              <li class="nav-item">
+                <a href="{% url "detail" acr.slug %}" class="nav-link" title="{{ acr.full_name }}">
+                  {{ acr.name }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
 
   </div>
+
+  <div class="row cardrow">
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-header">
+          Integrations
+        </div>
+        <div class="card-body">
+          <em>Search for the meaning of acronyms from your favourite program!</em>
+        </div>
+        <a class="card-footer" href="{% url "integrations" %}">
+          View all integrations
+        </a>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-header">
+          Acronomy API
+        </div>
+        <div class="card-body">
+          <em>Build your own application using acronomy data!</em>
+        </div>
+        <a class="card-footer" href="/api/">
+          Browse the API
+        </a>
+      </div>
+    </div>
+
+  </div>
+
 {% endblock %}
 
 {% block searchInput %}autofocus{% endblock %}
