@@ -16,6 +16,5 @@ def fetch_matomo_pages():
           "&method=Actions.getPageUrls" \
           "&module=API" \
           f"&token_auth={MATOMO_API_KEY}"
-    print(url)
     r = requests.get(url)
     return r.json()
