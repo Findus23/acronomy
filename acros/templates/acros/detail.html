@@ -56,7 +56,7 @@
   {#        {% endfor %}#}
   <div class="tags">
     {% for tag in acro.tags.all %}
-      <a href="{% url "tag" tag.slug %}" class="badge badge-primary">{{ tag.name }}</a>
+      <a href="{% url "tag" tag.slug %}" class="btn btn-primary btn-tag">{{ tag.name }}</a>
     {% endfor %}
   </div>
   <div class="row">
