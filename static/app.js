@@ -1,11 +1,12 @@
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+document.addEventListener('DOMContentLoaded', function () {
 
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
+    const tooltipList = tooltipTriggerList.map(
+        tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl)
+    )
 
     new Autocomplete('#autocomplete', {
-
         search: input => {
-
             const acroSearch = input.split(':')[0];
             const url = "/api/acronym/?search=" + acroSearch
 
@@ -24,10 +25,7 @@ $(function () {
 
         getResultValue: result => (result.name + ": " + result.full_name),
 
-        // Open the selected article in
-        // a new window
         onSubmit: result => {
-            console.log(result)
             window.location = "/acronym/" + result.slug
         },
         autoSelect: true,
