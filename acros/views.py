@@ -11,6 +11,7 @@ from acros.forms import EditForm, AddForm, WikipediaForm, PaperForm, WeblinkForm
 from acros.models import Acronym, Tag, AcroOfTheDay, WikipediaLink, PaperReference, Weblink
 from acros.serializers import AcronymSerializer, AcronymListSerializer, TagSerializer
 from acros.utils.assets import get_css
+from acros.utils.checks import registry
 
 handler404 = 'acros.views.PageNotFoundView'
 
@@ -120,6 +121,16 @@ class TagAcroView(generic.ListView):
 
     def get_queryset(self):
         return Acronym.objects.filter(tags__slug__exact=self.kwargs['slug'])
+
+
+class DataCheckView(generic.TemplateView, LoginRequiredMixin):
+    template_name = "acros/datacheck.html"
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        errors = registry.run_checks()
+        data['errors'] = errors
+        return data
 
 
 #### API Views ####

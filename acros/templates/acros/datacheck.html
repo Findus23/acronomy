@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block heading %}
+  <h1 class="acronym">Data Checks</h1>
+{% endblock %}
+
+{% block content %}
+
+  {% for error in errors %}
+    <div class="alert alert-{{ error.level }}" role="alert">
+      <strong>{{ error.obj }}</strong>:
+      {{ error.msg }}
+      <br>
+      <a href="{{ error.edit_url }}" class="alert-link">Edit</a>
+      <a href="{{ error.admin_edit_url }}" class="alert-link">Admin-Edit</a>
+    </div>
+  {% endfor %}
+
+{% endblock %}
