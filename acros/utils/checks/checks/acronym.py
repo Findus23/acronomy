@@ -1,5 +1,11 @@
+from itertools import chain
+
 from acros.models import Acronym
 from acros.utils.checks import BaseCheck, CheckWarning, registry, CheckInfo
+
+greek_codes = chain(range(0x370, 0x3e2), range(0x3f0, 0x400))
+greek_symbols = (chr(c) for c in greek_codes)
+greek_letters = set([c for c in greek_symbols if c.isalpha()])
 
 
 class LetterCheck(BaseCheck):
@@ -24,7 +30,7 @@ class LetterCheck(BaseCheck):
             for letter, acro_letter in zip(num_letters, acronym.name):
                 letter = letter.lower()
                 acro_letter = acro_letter.lower()
-                if letter != acro_letter:
+                if letter != acro_letter and letter not in greek_letters:
                     yield CheckWarning(
                         f"letters don't match ({letter}≠{acro_letter})",
                         obj=acronym
