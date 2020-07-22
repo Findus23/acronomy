@@ -11,6 +11,7 @@
       <strong>{{ error.obj }}</strong>:
       {{ error.msg }}
       <br>
+      <a href="{{ error.obj.get_absolute_url }}" class="alert-link">View</a>
       <a href="{{ error.edit_url }}" class="alert-link">Edit</a>
       <a href="{{ error.admin_edit_url }}" class="alert-link">Admin-Edit</a>
     </div>
