@@ -1,26 +1,28 @@
 {% load version %}
 <footer>
   <nav class="navbar navbar-dark bg-dark navbar-expand">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/Findus23/acronomy/tree/{% commit_id %}"
-           target="_blank" rel="noopener" title="{% commit_id %}">
-          Source
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://lw1.at/i">Privacy</a>
-      </li>
-      {% if user.is_authenticated %}
+    <div class="container-fluid">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+          <a class="nav-link" href="https://github.com/Findus23/acronomy/tree/{% commit_id %}"
+             target="_blank" rel="noopener" title="{% commit_id %}">
+            Source
+          </a>
         </li>
-      {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Log in</a>
+          <a class="nav-link" href="https://lw1.at/i">Privacy</a>
         </li>
-      {% endif %}
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Log in</a>
+          </li>
+        {% endif %}
 
-    </ul>
+      </ul>
+    </div>
   </nav>
 </footer>
