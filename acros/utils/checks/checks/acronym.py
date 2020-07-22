@@ -30,7 +30,7 @@ class LetterCheck(BaseCheck):
             for letter, acro_letter in zip(num_letters, acronym.name):
                 letter = letter.lower()
                 acro_letter = acro_letter.lower()
-                if letter != acro_letter and letter not in greek_letters:
+                if letter != acro_letter and acro_letter not in greek_letters:
                     yield CheckWarning(
                         f"letters don't match ({letter}≠{acro_letter})",
                         obj=acronym
