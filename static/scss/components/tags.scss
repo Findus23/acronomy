@@ -1,0 +1,21 @@
+.btn-tag {
+  @include button-size($badge-padding-y, $badge-padding-x, $badge-font-size, $badge-border-radius);
+  font-weight: $badge-font-weight;
+  line-height: 1;
+}
+
+
+.tags {
+  margin-bottom: 2rem;
+}
+
+.taglist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.taglist .btn {
+  font-size: 150%;
+  margin: 5px;
+}

@@ -1,0 +1,16 @@
+#letterselect {
+  span {
+    cursor: pointer;
+    user-select: none;
+
+    &.als {
+      color: green;
+    }
+  }
+}
+
+#letterform {
+  input[type=text] {
+    display: none;
+  }
+}

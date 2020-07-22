@@ -1,0 +1,52 @@
+
+html {
+  height: 100%;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  > .container {
+    flex: 1 0 auto;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+
+h1.acronym {
+  font-size: 4rem;
+}
+
+.fullName {
+  text-align: center;
+  font-size: 2rem;
+
+  .al {
+    transition: color .2s, text-decoration-color .2s;
+    text-decoration-line: underline;
+    text-decoration-color: white;
+  }
+
+  &:hover {
+    .al {
+      color: green;
+      text-decoration-color: green;
+    }
+  }
+}
+
+
+.aotd, .popular {
+  flex-direction: column;
+}
+
+
+.cardrow, #autocomplete {
+  margin-bottom: 2rem;
+}

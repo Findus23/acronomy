@@ -1,0 +1,14 @@
+.linkbar {
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    display: block;
+  }
+
+  img, svg {
+    width: 26px;
+    height: 26px;
+    padding: 5px;
+  }
+}
