@@ -38,3 +38,14 @@ class LetterCheck(BaseCheck):
 
 
 registry.register(LetterCheck)
+
+
+class FullNameCheck(BaseCheck):
+    def run(self):
+        for acronym in Acronym.objects.all():
+            first_letter = acronym.full_name[0]
+            if first_letter.islower():
+                yield CheckInfo(f"first letter of full name should be uppercase ({acronym.full_name})")
+
+
+registry.register(FullNameCheck)
