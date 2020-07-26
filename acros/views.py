@@ -156,6 +156,9 @@ class AcronymViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class TagViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    A list of all available tags (used for auto-completion)
+    """
     queryset = Tag.objects.all().order_by("name")
     serializer_class = TagSerializer
 
