@@ -7,14 +7,16 @@ from rest_framework import routers
 
 from acronomy import settings
 from . import views
-from .sitemaps import AcronymSitemap
+from .sitemaps import AcronymSitemap, StaticPagesSitemap, TagsSitemap
 
 router = routers.DefaultRouter()
 router.register(r'acronym', views.AcronymViewSet)
 router.register(r'tag', views.TagViewSet)
 
 sitemaps = {
-    "acronyms": AcronymSitemap
+    "static": StaticPagesSitemap,
+    "acronyms": AcronymSitemap,
+    "tags": TagsSitemap
 }
 
 urlpatterns = [
