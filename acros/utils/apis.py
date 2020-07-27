@@ -28,7 +28,8 @@ class WikipediaAPISummary:
 
     @property
     def description(self) -> str:
-        return self.data["description"]
+        if "description" in self.data:
+            return self.data["description"]
 
     @property
     def timestamp(self) -> str:
@@ -38,7 +39,6 @@ class WikipediaAPISummary:
     def image(self) -> Optional[str]:
         if "originalimage" in self.data:
             return self.data["originalimage"]["source"]
-        return None
 
 
 def get_website_title(url: str) -> str:
