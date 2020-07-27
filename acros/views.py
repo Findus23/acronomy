@@ -2,7 +2,7 @@ from datetime import date
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views import generic
@@ -137,7 +137,9 @@ class DataCheckView(generic.TemplateView, LoginRequiredMixin):
 #### Search Views ####
 
 def search_suggestion_view(request):
-    query = request.GET.get('q')
+    query: str = request.GET.get('q')
+    if not query:
+        return HttpResponseBadRequest("q parameter is required")
     results = Acronym.objects.filter(slug__contains=query)
     suggestions = []
     r: Acronym
@@ -151,7 +153,9 @@ def search_suggestion_view(request):
 
 
 def search_view(request):
-    query = request.GET.get('q')
+    query: str = request.GET.get('q')
+    if not query:
+        return HttpResponseBadRequest("q parameter is required")
     query_acr = query.split(":")[0]
     print(query_acr)
     try:
