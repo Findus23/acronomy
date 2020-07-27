@@ -1,13 +1,19 @@
 
 .card-title {
   text-align: center;
+
+  img {
+    max-width: 32px;
+    height: auto;
+  }
 }
 
-.card-title img {
-  max-width: 32px;
-  height: auto;
+.card {
+  .description {
+    text-align: center;
+    font-style: italic;
+  }
 }
-
 
 .card-img-top {
   height: auto;

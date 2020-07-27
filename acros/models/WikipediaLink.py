@@ -12,6 +12,7 @@ class WikipediaLink(models.Model):
     title = models.CharField(max_length=200)
     extract = models.TextField(blank=True)
     extract_html = models.TextField(blank=True)
+    description = models.TextField(blank=True)
     thumbnail = models.ForeignKey(WikipediaImage, on_delete=models.CASCADE, related_name="wiki_articles",
                                   blank=True, null=True)
     timestamp = models.DateTimeField(blank=True)
@@ -23,6 +24,7 @@ class WikipediaLink(models.Model):
             summary = WikipediaAPISummary(self.title)
             self.extract = summary.extract
             self.extract_html = summary.extract_html
+            self.description = summary.description
             self.timestamp = summary.timestamp
             self.title = summary.title
             if summary.image:

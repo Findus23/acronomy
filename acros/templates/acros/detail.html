@@ -43,17 +43,6 @@
       {{ acro.description_html|safe }}
     </div>
   {% endif %}
-  {#    <div class="linkwrapper">#}
-  {#        {% for link in acro.links.all %}#}
-  {#            <div><a href="{{ link.url }}">{{ link.url }}</a></div>#}
-  {#        {% endfor %}#}
-  {#        {% for paper in acro.papers.all %}#}
-  {#            <div>#}
-  {#                <a href="{{ paper.ads_url }}">ADS</a>#}
-  {#                <a href="{{ paper.arxiv_url }}">Arxiv</a>#}
-  {#                <a href="{{ paper.doi_url }}">DOI</a>#}
-  {#            </div>#}
-  {#        {% endfor %}#}
   <div class="tags">
     {% for tag in acro.tags.all %}
       <a href="{% url "tag" tag.slug %}" class="btn btn-primary btn-tag">{{ tag.name }}</a>
@@ -71,6 +60,9 @@
           {% endif %}
           <div class="card-body">
             <h5 class="card-title">{{ link.title }}</h5>
+            {% if link.description %}
+              <p class="description text-muted">{{ link.description }}</p>
+            {% endif %}
             {#<p class="card-text">{{ link.extract_html|safe }}</p>#}
             <p class="card-text">{{ link.extract }}</p>
             <a href="{{ link.url }}" class="btn btn-primary">

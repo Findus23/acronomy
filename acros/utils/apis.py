@@ -27,6 +27,10 @@ class WikipediaAPISummary:
         return self.data["extract_html"]
 
     @property
+    def description(self) -> str:
+        return self.data["description"]
+
+    @property
     def timestamp(self) -> str:
         return self.data["timestamp"]
 
