@@ -140,7 +140,7 @@ def search_suggestion_view(request):
     query: str = request.GET.get('q')
     if not query:
         return HttpResponseBadRequest("q parameter is required")
-    results = Acronym.objects.filter(slug__contains=query)
+    results = Acronym.objects.filter(name__icontains=query)
     suggestions = []
     r: Acronym
     for r in results:
