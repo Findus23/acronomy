@@ -37,7 +37,9 @@ urlpatterns = [
     path('tag', RedirectView.as_view(pattern_name="tags")),
     path('tag/<str:slug>', views.TagAcroView.as_view(), name='tag'),
     path('integrations', views.IntegrationsView.as_view(), name="integrations"),
-    path('datachecks', views.DataCheckView.as_view(), name="datachecks")
+    path('datachecks', views.DataCheckView.as_view(), name="datachecks"),
+    path('search/suggest', views.search_suggestion_view, name="search_suggestion"),
+    path('search', views.search_view, name="search")
 ]
 
 if settings.DEBUG:

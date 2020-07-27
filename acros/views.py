@@ -2,7 +2,8 @@ from datetime import date
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views import generic
 from rest_framework import viewsets, filters
@@ -131,6 +132,35 @@ class DataCheckView(generic.TemplateView, LoginRequiredMixin):
         errors = registry.run_checks()
         data['errors'] = errors
         return data
+
+
+#### Search Views ####
+
+def search_suggestion_view(request):
+    query = request.GET.get('q')
+    results = Acronym.objects.filter(slug__contains=query)
+    suggestions = []
+    r: Acronym
+    for r in results:
+        suggestions.append(f"{r.name}: {r.full_name}")
+    response = [
+        query,
+        suggestions
+    ]
+    return JsonResponse(response, safe=False)
+
+
+def search_view(request):
+    query = request.GET.get('q')
+    query_acr = query.split(":")[0]
+    print(query_acr)
+    try:
+        acr = Acronym.objects.get(name__iexact=query_acr)
+        return redirect("detail", slug=acr.slug)
+    except Acronym.DoesNotExist:
+        pass
+    results = Acronym.objects.filter(name__trigram_similar=query_acr)
+    return render(request, "acros/search.html", {"results": results, "query": query_acr})
 
 
 #### API Views ####

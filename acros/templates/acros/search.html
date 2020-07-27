@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Search for "{{ query }}" &dash; Acronomy{% endblock %}
+
+{% block heading %}
+  <h1>Search for "{{ query }}" did not find any results</h1>
+{% endblock %}
+
+{% block content %}
+  {% if results %}
+    <p>Did you maybe look for one of those acronyms?</p>
+    <ul>
+      {% for r in results %}
+        <li><a href="{% url "detail" r.slug %}"><strong>{{ r.name }}</strong>: {{ r.full_name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

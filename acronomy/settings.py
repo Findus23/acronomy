@@ -24,6 +24,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost", "acronomy.lw1.at"]
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'acros.apps.AcrosConfig',
     'django.contrib.admin',
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'django.contrib.postgres',
     'simple_history',
     'debug_toolbar',
     'rest_framework',
