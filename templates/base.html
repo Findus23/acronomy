@@ -6,7 +6,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>{% block title %}Acronomy{% endblock %}</title>
-
+  <link rel="icon" href="{% static "images/logo.png" %}" sizes="1024x1024">
+  <link rel="icon" href="{% static "images/logo.svg" %}" sizes="any" type="image/svg+xml">
   {% if debug %}
     <link rel="stylesheet" href="{% url "css" %}">
   {% else %}
