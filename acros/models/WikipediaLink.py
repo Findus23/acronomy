@@ -33,8 +33,9 @@ class WikipediaLink(models.Model):
                     thumbnail = WikipediaImage.objects.get(filename=filename)
                 except WikipediaImage.DoesNotExist:
                     thumbnail = WikipediaImage.objects.create(filename=filename)
-                thumbnail.save()
-                self.thumbnail = thumbnail
+                success = thumbnail.save()
+                if success:
+                    self.thumbnail = thumbnail
             self.fetched = True
 
         super(WikipediaLink, self).save(*args, **kwargs)

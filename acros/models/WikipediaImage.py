@@ -28,7 +28,7 @@ class WikipediaImage(models.Model):
         try:
             img = WikipediaImageAPIObject(self.filename)
         except NotFoundError:
-            return
+            return False
         if self.thumbnail:
             self.thumbnail.delete(save=False)
         print("saving")
