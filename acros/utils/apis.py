@@ -65,7 +65,7 @@ class WikipediaImageAPIObject:
         r.raise_for_status()
         self.data = r.json()
         self.image_obj = list(self.data["query"]["pages"].values())[0]
-        if "imageinfo" not in self.image_obj:
+        if "imageinfo" not in self.image_obj or "AttributionRequired" not in self.extmetadata:
             raise NotFoundError()
 
     @classmethod
