@@ -12,8 +12,9 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-    def clean(self):
+    def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
+        super(Tag, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('tag', args=[str(self.slug)])
