@@ -54,6 +54,7 @@ class WikipediaImage(models.Model):
         self.timestamp = img.timestamp
 
         super(WikipediaImage, self).save(*args, **kwargs)
+        return True
 
     @property
     def commons_url(self):
