@@ -1,10 +1,11 @@
 from urllib.parse import unquote
 
+from django.core.exceptions import ValidationError
 from django.db import models
 from simple_history.models import HistoricalRecords
 
 from acros.models import Acronym, WikipediaImage
-from acros.utils.apis import WikipediaAPISummary
+from acros.utils.apis import WikipediaAPISummary, NotFoundError
 
 
 class WikipediaLink(models.Model):
@@ -19,9 +20,12 @@ class WikipediaLink(models.Model):
     fetched = models.BooleanField(default=False)
     history = HistoricalRecords()
 
-    def save(self, *args, **kwargs):
+    def clean(self):
         if not self.fetched:
-            summary = WikipediaAPISummary(self.title)
+            try:
+                summary = WikipediaAPISummary(self.title)
+            except NotFoundError as e:
+                raise ValidationError(str(e))
             self.extract = summary.extract
             self.extract_html = summary.extract_html
             self.description = summary.description
@@ -38,7 +42,6 @@ class WikipediaLink(models.Model):
                     self.thumbnail = thumbnail
             self.fetched = True
 
-        super(WikipediaLink, self).save(*args, **kwargs)
 
     @property
     def url(self):

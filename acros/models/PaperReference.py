@@ -22,7 +22,7 @@ class PaperReference(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
+    def clean(self, *args, **kwargs):
         if not self.fetched:
             ads.config.token = ADS_AUTH_TOKEN
             cols = ["title", "author", "year", "pubdate", "doi", "identifier"]
@@ -45,7 +45,6 @@ class PaperReference(models.Model):
             else:
                 self.arxiv_id = None
             self.fetched = True
-        super(PaperReference, self).save(*args, **kwargs)
 
     @property
     def ads_url(self):

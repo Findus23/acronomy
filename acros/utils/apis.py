@@ -16,7 +16,10 @@ class WikipediaAPISummary:
 
     def __init__(self, title: str):
         r = requests.get(self.urlbase + title)
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except requests.HTTPError:
+            raise NotFoundError("Wikipedia API returns error")
         self.data = r.json()
 
     @property

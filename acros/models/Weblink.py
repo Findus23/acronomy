@@ -17,8 +17,7 @@ class Weblink(models.Model):
     def __str__(self):
         return self.url
 
-    def save(self, *args, **kwargs):
+    def clean(self):
         uri = urlparse(self.url)
         self.host, created = Host.objects.get_or_create(host=uri.hostname)
         self.title = get_website_title(self.url)
-        super(Weblink, self).save(*args, **kwargs)

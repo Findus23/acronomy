@@ -31,16 +31,24 @@ class Acronym(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
     pageviews = models.IntegerField(default=0, editable=False)
 
-    def save(self, *args, **kwargs):
+    def clean(self):
+        if not self.slug:
+            self.slug = slugify(self.name)
+
+        if not self.id:
+            try:
+                found = Acronym.objects.get(slug=self.slug)
+            except Acronym.DoesNotExist:
+                found = False
+            if found:
+                raise ValidationError(f"slug '{self.slug}' already exists")
+
         self.description_html = md_to_html(self.description_md)
         if not self.acro_letters:
             self.acro_letters = [0]
             for pos, char in enumerate(self.full_name):
                 if char == " " and pos <= len(self.full_name):
                     self.acro_letters.append(pos + 1)
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super(Acronym, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -53,13 +61,3 @@ class Acronym(models.Model):
 
     class Meta:
         ordering = ["name"]
-
-    def clean(self):
-        if not self.id:
-            new_slug = slugify(self.name)
-            try:
-                found = Acronym.objects.get(slug=new_slug)
-            except Acronym.DoesNotExist:
-                found = False
-            if found:
-                raise ValidationError(f"slug '{new_slug}' already exists")
