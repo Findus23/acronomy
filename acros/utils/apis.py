@@ -6,6 +6,11 @@ from bs4 import BeautifulSoup
 from acros.utils.html import clean_html, string_to_bool
 
 
+class NotFoundError(FileNotFoundError):
+    """Request could not be found in API"""
+    pass
+
+
 class WikipediaAPISummary:
     urlbase = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 
@@ -57,6 +62,8 @@ class WikipediaImageAPIObject:
         r.raise_for_status()
         self.data = r.json()
         self.image_obj = list(self.data["query"]["pages"].values())[0]
+        if "imageinfo" not in self.image_obj:
+            raise NotFoundError()
 
     @classmethod
     def from_url(cls, url: str):

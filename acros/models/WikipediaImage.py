@@ -4,7 +4,7 @@ import requests
 from django.core.files import File
 from django.db import models
 
-from acros.utils.apis import WikipediaImageAPIObject
+from acros.utils.apis import WikipediaImageAPIObject, NotFoundError
 
 
 class WikipediaImage(models.Model):
@@ -25,7 +25,10 @@ class WikipediaImage(models.Model):
     timestamp = models.DateTimeField(blank=True, editable=False)
 
     def save(self, *args, **kwargs):
-        img = WikipediaImageAPIObject(self.filename)
+        try:
+            img = WikipediaImageAPIObject(self.filename)
+        except NotFoundError:
+            return
         if self.thumbnail:
             self.thumbnail.delete(save=False)
         print("saving")
