@@ -11,17 +11,20 @@ class OwnInline(admin.TabularInline):
 
 class LinkInline(OwnInline):
     model = Weblink
+    show_change_link = True
 
 
 class PaperInline(OwnInline):
     model = PaperReference
     fields = ["bibcode"]
     readonly_fields = ["title"]
+    show_change_link = True
 
 
 class WikiInline(OwnInline):
     model = WikipediaLink
     fields = ["title"]
+    show_change_link = True
 
 
 class TagAdmin(SimpleHistoryAdmin):
