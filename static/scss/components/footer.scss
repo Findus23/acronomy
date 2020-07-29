@@ -5,5 +5,10 @@ footer {
   .navbar-nav {
     justify-content: space-between;
     width: 100%;
+
+    @include media-breakpoint-down(xs) {
+      flex-direction: column !important;
+      text-align: center;
+    }
   }
 }
