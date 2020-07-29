@@ -1,14 +1,13 @@
-
 footer {
   margin-top: 1rem;
 
   .navbar-nav {
     justify-content: space-between;
     width: 100%;
-
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       flex-direction: column !important;
       text-align: center;
     }
   }
 }
+
