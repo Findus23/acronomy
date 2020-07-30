@@ -18,7 +18,7 @@ handler404 = 'acros.views.PageNotFoundView'
 
 
 class IndexView(generic.TemplateView):
-    template_name = "acros/index.html"
+    template_name = "acros/homepage.html"
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)

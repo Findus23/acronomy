@@ -4,7 +4,7 @@
 {% load static %}
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Acronomy{% endblock %}</title>
   <link rel="icon" href="{% static "images/logo.png" %}" sizes="1024x1024">
   <link rel="icon" href="{% static "images/logo.svg" %}" sizes="any" type="image/svg+xml">
@@ -16,7 +16,7 @@
   {% block extra_head %}
   {% endblock %}
   {% if not debug %}
-    <script type="text/javascript">
+    <script>
         var _paq = window._paq = window._paq || [];
         _paq.push(['disableCookies']);
         _paq.push(['setRequestMethod', 'POST']);
@@ -48,17 +48,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <div class="navbar-nav">
           <a class="nav-item nav-link" href="{% url 'add' %}">Add</a>
           {% block admin_navbar %}
           {% endblock %}
-        </ul>
+        </div>
       </div>
     </div>
   </nav>
 {% endif %}
 
-{#        <div class="container {{ referrers is defined ? "edit" }}">#}
 <div class="container {% block containerclasses %}{% endblock %}">
   {% bootstrap_messages %}
   {% block heading %}

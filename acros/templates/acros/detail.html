@@ -6,6 +6,27 @@
     <!-- Only embed katex if there is an equation on the page -->
     <link rel="stylesheet" href="{% static "libs/katex.min.css" %}">
   {% endif %}
+  <meta property="og:title" content="{{ acro.name }}: {{ acro.full_name }} &dash; Acronomy"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://acronomy.lw1.at{{ acro.get_absolute_url }}"/>
+  <meta property="og:locale" content="en_GB"/>
+  {% if acro.wiki_articles.all and acro.wiki_articles.all.0.description %}
+    <!-- This short description is from the Wikipedia project and licensed under Creative Commons Attribution-ShareAlike 3.0 -->
+    <meta name="description" content="{{ acro.name }}: {{ acro.full_name }} ({{ acro.wiki_articles.all.0.description }})">
+    <meta property="og:description" content="{{ acro.wiki_articles.all.0.description }}"/>
+
+  {% endif %}
+  {% if acro.wiki_articles.all and acro.wiki_articles.all.0.thumbnail %}
+    {# Hardcoded URLs are ugly, but there is no other simple solution #}
+    <meta property="og:image" content="https://acronomy.lw1.at{{ acro.wiki_articles.all.0.thumbnail.thumbnail.url }}"/>
+    <meta property="og:image:width" content="{{ acro.wiki_articles.all.0.thumbnail.thumb_width }}" />
+    <meta property="og:image:height" content="{{ acro.wiki_articles.all.0.thumbnail.thumb_height }}" />
+  {% else %}
+    <meta property="og:image" content="https://acronomy.lw1.at{% static "images/logo.png" %}"/>
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+
+  {% endif %}
 {% endblock %}
 
 {% block title %}{{ acro.name }}: {{ acro.full_name }} &dash; Acronomy{% endblock %}
@@ -13,7 +34,8 @@
 {% block heading %}
   <h1 class="acronym">{{ acro.name }}</h1>
   <p class="fullName">
-      {% for letter in acro.full_name %}<span {% if forloop.counter0 in acro.acro_letters %}class="al"{% endif %}>{{ letter }}</span>{% endfor %}
+    {% for letter in acro.full_name %}
+      <span {% if forloop.counter0 in acro.acro_letters %}class="al"{% endif %}>{{ letter }}</span>{% endfor %}
   </p>
 
 {% endblock %}
@@ -55,7 +77,7 @@
           {% if link.thumbnail %}
             <a href="{{ link.url }}">
               <img src="{{ link.thumbnail.thumbnail.url }}" class="card-img-top"
-                   width="{{ link.thumbnail.thumbnail_width }}" height="{{ link.thumbnail.thumbnail_height }}">
+                   width="{{ link.thumbnail.thumb_width }}" height="{{ link.thumbnail.thumb_height }}">
             </a>
           {% endif %}
           <div class="card-body">

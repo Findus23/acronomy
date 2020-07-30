@@ -42,10 +42,9 @@ class WikipediaLink(models.Model):
                     self.thumbnail = thumbnail
             self.fetched = True
 
-
     @property
     def url(self):
-        return f"https://en.wikipedia.org/wiki/{self.title}"
+        return f"https://en.wikipedia.org/wiki/{self.title.replace(' ', '_')}"
 
     def __str__(self):
         return self.title
