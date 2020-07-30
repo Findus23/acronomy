@@ -49,6 +49,8 @@ class DetailView(generic.DetailView):
     template_name = 'acros/detail.html'
     context_object_name = 'acro'
     model = Acronym
+    queryset = Acronym.objects.prefetch_related('wiki_articles')
+
 
 
 class EditView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
