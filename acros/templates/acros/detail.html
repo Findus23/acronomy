@@ -99,12 +99,14 @@
                title="This snippet and thumbnail is from the English Wikipedia and licensed under the CC-BY-SA 3.0 license">
               License
             </a>
-            <a href="{{ link.thumbnail.commons_url }}" target="_blank" rel="noopener"
-               class="text-muted"
-               data-toggle="tooltip"
-               title="by {{ link.thumbnail.artist }} under {{ link.thumbnail.license_short_name }}">
-              Image-Source
-            </a>
+            {% if link.thumbnail %}
+              <a href="{{ link.thumbnail.commons_url }}" target="_blank" rel="noopener"
+                 class="text-muted"
+                 data-toggle="tooltip"
+                 title="by {{ link.thumbnail.artist }} under {{ link.thumbnail.license_short_name }}">
+                Image-Source
+              </a>
+            {% endif %}
           </div>
         </div>
       </div>
