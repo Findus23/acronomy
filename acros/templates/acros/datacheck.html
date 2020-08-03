@@ -11,13 +11,19 @@
       <strong>{{ error.obj }}</strong>:
       {{ error.msg }}
       <br>
-      <a href="{{ error.obj.get_absolute_url }}" class="alert-link">View</a>
-      <a href="{{ error.edit_url }}" class="alert-link">Edit</a>
-      <a href="{{ error.admin_edit_url }}" class="alert-link">Admin-Edit</a>
+      {% if error.obj.get_absolute_url %}
+        <a href="{{ error.obj.get_absolute_url }}" class="alert-link">View</a>
+      {% endif %}
+      {% if error.edit_url %}
+        <a href="{{ error.edit_url }}" class="alert-link">Edit</a>
+      {% endif %}
+      {% if error.admin_edit_url %}
+        <a href="{{ error.admin_edit_url }}" class="alert-link">Admin-Edit</a>
+      {% endif %}
     </div>
-    {% empty %}
+  {% empty %}
     <div class="alert alert-success" role="alert">
-    No warnings at the moment! 🎉
+      No warnings at the moment! 🎉
     </div>
   {% endfor %}
 

@@ -1,6 +1,6 @@
 from django.urls import reverse
 
-from acros.models import Acronym
+from acros.models import Acronym, Tag
 
 DEBUG = 10
 INFO = "info"
@@ -30,6 +30,8 @@ class CheckMessage:
     def admin_edit_url(self):
         if isinstance(self.obj, Acronym):
             return reverse("admin:acros_acronym_change", args=[self.obj.id])
+        if isinstance(self.obj, Tag):
+            return reverse("admin:acros_tag_change", args=[self.obj.id])
         return None
 
 
