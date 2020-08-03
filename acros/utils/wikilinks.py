@@ -18,9 +18,7 @@ from markdown.inlinepatterns import InlineProcessor
 
 from acros.models import Acronym
 
-
-def build_url(label, base, end):
-    return "".join([base, label, end])
+invalid_wikilink = "invalid wikilink"
 
 
 class WikiLinkExtension(Extension):
@@ -52,7 +50,10 @@ class WikiLinksInlineProcessor(InlineProcessor):
             acro = Acronym.objects.get(name=label)
         except Acronym.DoesNotExist:
             # TODO: Notify user of invalid acronym
-            return "", m.start(0), m.end(0)
+            span = etree.Element("span")
+            span.text = invalid_wikilink
+            span.set("style", "display:none")
+            return span, m.start(0), m.end(0)
         url = f"/acronym/{acro.slug}"
         a = etree.Element("a")
         a.text = label

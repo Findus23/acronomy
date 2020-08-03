@@ -2,6 +2,7 @@ from itertools import chain
 
 from acros.models import Acronym
 from acros.utils.checks import BaseCheck, CheckWarning, registry, CheckInfo
+from acros.utils.wikilinks import invalid_wikilink
 
 greek_codes = chain(range(0x370, 0x3e2), range(0x3f0, 0x400))
 greek_symbols = (chr(c) for c in greek_codes)
@@ -52,3 +53,16 @@ class FullNameCheck(BaseCheck):
 
 
 registry.register(FullNameCheck)
+
+
+class WikiLinkCheck(BaseCheck):
+    def run(self):
+        for acronym in Acronym.objects.all():
+            if invalid_wikilink in acronym.description_html:
+                yield CheckWarning(
+                    "invalid wikilink",
+                    obj=acronym
+                )
+
+
+registry.register(WikiLinkCheck)
