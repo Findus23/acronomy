@@ -6,3 +6,4 @@ from .PaperReference import PaperReference
 from .Weblink import Weblink
 from .WikipediaImage import WikipediaImage
 from .WikipediaLink import WikipediaLink
+from .signals import *
