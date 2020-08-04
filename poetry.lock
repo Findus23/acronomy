@@ -132,10 +132,10 @@ description = "A high-level Python Web framework that encourages rapid developme
 name = "django"
 optional = false
 python-versions = ">=3.6"
-version = "3.0.8"
+version = "3.1"
 
 [package.dependencies]
-asgiref = ">=3.2,<4.0"
+asgiref = ">=3.2.10,<3.3.0"
 pytz = "*"
 sqlparse = ">=0.2.2"
 
@@ -198,8 +198,12 @@ python-versions = ">=3.5"
 version = "3.11.0"
 
 [package.dependencies]
-django = ">=1.11"
+django = ">=2.2"
 
+[package.source]
+reference = "559088463b8625880e6a03dde804cb5a61da3088"
+type = "git"
+url = "https://github.com/encode/django-rest-framework.git"
 [[package]]
 category = "dev"
 description = "Lightweight in-process concurrent programming"
@@ -450,7 +454,8 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "4043edd86c5dcce243e6501dcf9cc90726c2eba313efa5341613cda12bb40735"
+content-hash = "612314f87ff5af43b4bdd4923cbcc84f27e0c3ef75a4be169a12f32f20b3c259"
+lock-version = "1.0"
 python-versions = ">=3.7,<4.0"
 
 [metadata.files]
@@ -536,8 +541,8 @@ curtsies = [
     {file = "curtsies-0.3.4.tar.gz", hash = "sha256:4ca543998d8bbba7185db099f8b7bb30baeb47426f7ac1a271e4d9ca8bbb2b05"},
 ]
 django = [
-    {file = "Django-3.0.8-py3-none-any.whl", hash = "sha256:5457fc953ec560c5521b41fad9e6734a4668b7ba205832191bbdff40ec61073c"},
-    {file = "Django-3.0.8.tar.gz", hash = "sha256:31a5fbbea5fc71c99e288ec0b2f00302a0a92c44b13ede80b73a6a4d6d205582"},
+    {file = "Django-3.1-py3-none-any.whl", hash = "sha256:1a63f5bb6ff4d7c42f62a519edc2adbb37f9b78068a5a862beff858b68e3dc8b"},
+    {file = "Django-3.1.tar.gz", hash = "sha256:2d390268a13c655c97e0e2ede9d117007996db692c1bb93eabebd4fb7ea7012b"},
 ]
 django-bootstrap4 = [
     {file = "django-bootstrap4-2.2.0.tar.gz", hash = "sha256:1c0a931b4245a0dcd5051ea1b244ac130a328374ce8e85254c75eb072a737201"},
@@ -551,10 +556,7 @@ django-simple-history = [
     {file = "django-simple-history-2.11.0.tar.gz", hash = "sha256:d147d441165b802082647c86ca14776fe3574986053bbba90a9eaee1b315b826"},
     {file = "django_simple_history-2.11.0-py2.py3-none-any.whl", hash = "sha256:b46191e97bb59b82e0ef20ae316021f7337fec50e5acbbd5a757b37910759af0"},
 ]
-djangorestframework = [
-    {file = "djangorestframework-3.11.0-py3-none-any.whl", hash = "sha256:05809fc66e1c997fd9a32ea5730d9f4ba28b109b9da71fccfa5ff241201fd0a4"},
-    {file = "djangorestframework-3.11.0.tar.gz", hash = "sha256:e782087823c47a26826ee5b6fa0c542968219263fb3976ec3c31edab23a4001f"},
-]
+djangorestframework = []
 greenlet = [
     {file = "greenlet-0.4.16-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:80cb0380838bf4e48da6adedb0c7cd060c187bb4a75f67a5aa9ec33689b84872"},
     {file = "greenlet-0.4.16-cp27-cp27m-win32.whl", hash = "sha256:df7de669cbf21de4b04a3ffc9920bc8426cab4c61365fa84d79bf97401a8bef7"},
