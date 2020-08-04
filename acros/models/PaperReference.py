@@ -3,8 +3,8 @@ from ads.search import Article
 from django.db import models
 from simple_history.models import HistoricalRecords
 
-from acros.models import Acronym
 from acronomy.settings import ADS_AUTH_TOKEN
+from acros.models import Acronym
 
 
 class PaperReference(models.Model):

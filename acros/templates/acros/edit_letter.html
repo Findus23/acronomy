@@ -7,9 +7,11 @@
 
 
 {% block content %}
+  {# @formatter:off #}
   <h1 id="letterselect">
     {% for letter in acro.full_name %}<span {% if forloop.counter0 in acro.acro_letters %}class="als"{% endif %}>{{ letter }}</span>{% endfor %}
   </h1>
+  {# @formatter:on #}
   <form method="post" id="letterform">
     {% csrf_token %}
     {{ form.acro_letters }}

@@ -1,7 +1,6 @@
 from django.contrib.postgres.fields import ArrayField
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.text import slugify
 from simple_history.models import HistoricalRecords
@@ -62,5 +61,3 @@ class Acronym(models.Model):
 
     class Meta:
         ordering = ["name"]
-
-

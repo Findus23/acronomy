@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="taglist">
-        {% for tag in tags %}
-            <a href="{% url "tag" tag.slug %}" class="btn btn-primary btn-tag">{{ tag.name }}</a>
-        {% endfor %}
-    </div>
+  <div class="taglist">
+    {% for tag in tags %}
+      <a href="{% url "tag" tag.slug %}" class="btn btn-primary btn-tag">{{ tag.name }}</a>
+    {% endfor %}
+  </div>
 {% endblock %}

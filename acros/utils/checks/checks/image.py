@@ -10,4 +10,3 @@ class AuthorAttributionCheck(BaseCheck):
 
 
 registry.register(AuthorAttributionCheck)
-

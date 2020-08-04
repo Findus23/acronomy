@@ -6,12 +6,12 @@ authors = ["Lukas Winkler <git@lw1.at>"]
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
-django = {extras = ["argon2"], version = "^3.0.6"}
+django = { extras = ["argon2"], version = "^3.0.6" }
 psycopg2 = "^2.8.5"
 django-simple-history = "^2.10.0"
 markdown = "^3.2.2"
 django-debug-toolbar = "^2.2"
-djangorestframework = {git = "https://github.com/encode/django-rest-framework.git"}
+djangorestframework = { git = "https://github.com/encode/django-rest-framework.git" }
 requests = "^2.23.0"
 ads = "^0.12.3"
 Pillow = "^7.1.2"
