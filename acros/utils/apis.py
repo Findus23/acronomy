@@ -1,4 +1,5 @@
 from typing import Tuple, Optional
+from urllib.parse import urlencode
 
 import requests
 from bs4 import BeautifulSoup
@@ -15,7 +16,7 @@ class WikipediaAPISummary:
     urlbase = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 
     def __init__(self, title: str):
-        r = requests.get(self.urlbase + title)
+        r = requests.get(self.urlbase + urlencode(title))
         try:
             r.raise_for_status()
         except requests.HTTPError:
