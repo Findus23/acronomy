@@ -4,7 +4,7 @@ import requests
 from django.core.files import File
 from django.db import models
 
-from acros.utils.apis import WikipediaImageAPIObject, NotFoundError
+from acros.utils.apis import WikipediaImageAPIObject, NotFoundError, requests_session
 
 
 class WikipediaImage(models.Model):
@@ -36,7 +36,7 @@ class WikipediaImage(models.Model):
         if filename.endswith(".svg"):
             filename += ".png"
         with TemporaryFile("rb+") as fd:
-            r = requests.get(img.thumburl)
+            r = requests_session.get(img.thumburl)
             for chunk in r.iter_content(chunk_size=128):
                 fd.write(chunk)
             image_file = File(fd)

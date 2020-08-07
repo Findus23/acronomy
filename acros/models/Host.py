@@ -6,6 +6,8 @@ from PIL import Image
 from django.core.files.base import ContentFile
 from django.db import models
 
+from acros.utils.apis import requests_session
+
 
 class Host(models.Model):
     host = models.CharField(max_length=100)
@@ -21,7 +23,7 @@ class Host(models.Model):
     def save(self, *args, **kwargs):
         if not self.fetched or True:
             with TemporaryFile("rb+") as fd:
-                r = requests.get(f"https://external-content.duckduckgo.com/ip3/{self.host}.ico")
+                r = requests_session.get(f"https://external-content.duckduckgo.com/ip3/{self.host}.ico")
                 if r.ok:
                     filename = self.host + ".png"
                     for chunk in r.iter_content(chunk_size=128):

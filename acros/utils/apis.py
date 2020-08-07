@@ -2,8 +2,19 @@ from typing import Tuple, Optional
 
 import requests
 from bs4 import BeautifulSoup
+from django.core.cache import cache
 
 from acros.utils.html import clean_html, string_to_bool
+
+requests_session = requests.Session()
+commit = cache.get("commit")
+if commit:
+    commit_version = commit[:6]
+else:
+    commit_version = ""
+requests_session.headers.update({
+    "User-Agent": f"Acronomy {commit_version} (https://acronomy.lw1.at)"
+})
 
 
 class NotFoundError(FileNotFoundError):
@@ -15,7 +26,7 @@ class WikipediaAPISummary:
     urlbase = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 
     def __init__(self, title: str):
-        r = requests.get(self.urlbase + title.replace("/", "%2F"))
+        r = requests_session.get(self.urlbase + title.replace("/", "%2F"))
         try:
             r.raise_for_status()
         except requests.HTTPError:
@@ -50,7 +61,7 @@ class WikipediaAPISummary:
 
 
 def get_website_title(url: str) -> str:
-    r = requests.get(url)
+    r = requests_session.get(url)
     r.raise_for_status()
     soup = BeautifulSoup(r.text, features="html.parser")
     title = soup.find("title")
@@ -61,7 +72,7 @@ class WikipediaImageAPIObject:
     def __init__(self, filename: str):
         self.filename = filename
         print(self.api_url)
-        r = requests.get(self.api_url)
+        r = requests_session.get(self.api_url)
         r.raise_for_status()
         self.data = r.json()
         self.image_obj = list(self.data["query"]["pages"].values())[0]

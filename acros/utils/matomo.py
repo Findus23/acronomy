@@ -3,6 +3,7 @@ from datetime import date
 import requests
 
 from acronomy.settings import MATOMO_API_KEY
+from acros.utils.apis import requests_session
 
 
 def fetch_matomo_pages():
@@ -16,5 +17,5 @@ def fetch_matomo_pages():
           "&method=Actions.getPageUrls" \
           "&module=API" \
           f"&token_auth={MATOMO_API_KEY}"
-    r = requests.get(url)
+    r = requests_session.get(url)
     return r.json()
