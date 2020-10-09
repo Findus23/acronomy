@@ -20,7 +20,7 @@
     </div>
   {% endif %}
 
-  <form action="{% url 'login' %}" method="post" class="form">
+  <form method="post" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
     {% url 'admin_password_reset' as password_reset_url %}
