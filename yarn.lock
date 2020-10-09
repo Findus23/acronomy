@@ -8,19 +8,19 @@
   integrity sha512-emHJWZBPWdB5iDW9MrLSfq3lopyDlIhYXa8ttnCX9kQp1g+G0Lmfu/v6fW2aggjAfsZX8ksuZSG65o+EdwoN0g==
 
 "@yaireo/tagify@^3.9.3":
-  version "3.18.0"
-  resolved "https://registry.yarnpkg.com/@yaireo/tagify/-/tagify-3.18.0.tgz#34ba59e27648be840545d0431b584b9658a4a877"
-  integrity sha512-SNqXWfngUYSu5rk9wmE4O2rjCNEpPIdMx2MvUB9rWOdSY+/RlH7lDsFob6OqpsVjMgGqdLdDnKEJaKyna882Ng==
+  version "3.20.0"
+  resolved "https://registry.yarnpkg.com/@yaireo/tagify/-/tagify-3.20.0.tgz#815141bc00339b0d2fe40010ab5ff8ddf173fa21"
+  integrity sha512-Tt7zzH2idPp9g7z0j83QLbjAGpwiji8CMT3DTnlZN4QPTTWTD5eKxC5X2cj6P0ZV2dfZEss55ohmXYyz5un0dw==
 
 bootstrap@^5.0.0-alpha1:
-  version "5.0.0-alpha1"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.0-alpha1.tgz#cd35be4282bc930322bcbf1db23a8729c60a31cb"
-  integrity sha512-iwKneP2pLXl8lN0YpnOuOARiNPTzmh/4cw+Un86u4OqrMLuQpyMC7nO07hvivvcg0B/ektJPjuPnS1s+YmRK9A==
+  version "5.0.0-alpha2"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.0-alpha2.tgz#e37ce5836ef57c691d7e2369f7381b872d215f83"
+  integrity sha512-ZhW32+m5ImJoEkDKn43QQk2KovpJFisV/7TAg/RCzDi+B8m7FUgLHWx1Auu0Jt3/DQXDYwp6iwsprP3ej4u3ng==
 
 codemirror@^5.54.0:
-  version "5.57.0"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.57.0.tgz#d26365b72f909f5d2dbb6b1209349ca1daeb2d50"
-  integrity sha512-WGc6UL7Hqt+8a6ZAsj/f1ApQl3NPvHY/UQSzG6fB6l4BjExgVdhFaxd7mRTw1UCiYe/6q86zHP+kfvBQcZGvUg==
+  version "5.58.1"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.58.1.tgz#ec6bf38ad2a17f74c61bd00cc6dc5a69bd167854"
+  integrity sha512-UGb/ueu20U4xqWk8hZB3xIfV2/SFqnSLYONiM3wTMDqko0bsYrsAkGGhqUzbRkYm89aBKPyHtuNEbVWF9FTFzw==
 
 commander@^2.19.0:
   version "2.20.3"
