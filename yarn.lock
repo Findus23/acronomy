@@ -8,29 +8,29 @@
   integrity sha512-emHJWZBPWdB5iDW9MrLSfq3lopyDlIhYXa8ttnCX9kQp1g+G0Lmfu/v6fW2aggjAfsZX8ksuZSG65o+EdwoN0g==
 
 "@yaireo/tagify@^3.9.3":
-  version "3.20.0"
-  resolved "https://registry.yarnpkg.com/@yaireo/tagify/-/tagify-3.20.0.tgz#815141bc00339b0d2fe40010ab5ff8ddf173fa21"
-  integrity sha512-Tt7zzH2idPp9g7z0j83QLbjAGpwiji8CMT3DTnlZN4QPTTWTD5eKxC5X2cj6P0ZV2dfZEss55ohmXYyz5un0dw==
+  version "3.21.4"
+  resolved "https://registry.yarnpkg.com/@yaireo/tagify/-/tagify-3.21.4.tgz#3a7684672c250445138366d2d09c2b98fd44c97f"
+  integrity sha512-bDN39X5Q0PJABeErzBL0nTA26O6dHwK48cD37FqoWODqo0oymxT4GCPRBc2LYA3hg7/h/ibfKRiySWGAR1A+dQ==
 
 bootstrap@^5.0.0-alpha1:
-  version "5.0.0-alpha2"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.0-alpha2.tgz#e37ce5836ef57c691d7e2369f7381b872d215f83"
-  integrity sha512-ZhW32+m5ImJoEkDKn43QQk2KovpJFisV/7TAg/RCzDi+B8m7FUgLHWx1Auu0Jt3/DQXDYwp6iwsprP3ej4u3ng==
+  version "5.0.0-alpha3"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.0-alpha3.tgz#f5abbd38740383d6b8e041212aef5ea220e7daaa"
+  integrity sha512-ghwrMFNzqOwfB0nJ1iYbkERd+EK1PblUl7rEEynY35jD0TUlSY6yrjG2M42qI++NhAUBEqGcjmmHkMGs3QyNHA==
 
 codemirror@^5.54.0:
-  version "5.58.1"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.58.1.tgz#ec6bf38ad2a17f74c61bd00cc6dc5a69bd167854"
-  integrity sha512-UGb/ueu20U4xqWk8hZB3xIfV2/SFqnSLYONiM3wTMDqko0bsYrsAkGGhqUzbRkYm89aBKPyHtuNEbVWF9FTFzw==
+  version "5.58.2"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.58.2.tgz#ed54a1796de1498688bea1cdd4e9eeb187565d1b"
+  integrity sha512-K/hOh24cCwRutd1Mk3uLtjWzNISOkm4fvXiMO7LucCrqbh6aJDdtqUziim3MZUI6wOY0rvY1SlL1Ork01uMy6w==
 
 commander@^2.19.0:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-katex@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/katex/-/katex-0.11.1.tgz#df30ca40c565c9df01a466a00d53e079e84ffaa2"
-  integrity sha512-5oANDICCTX0NqYIyAiFCCwjQ7ERu3DQG2JFHLbYOf+fXaMoH8eg/zOq5WSYJsKMi/QebW+Eh3gSM+oss1H/bww==
+katex@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.12.0.tgz#2fb1c665dbd2b043edcf8a1f5c555f46beaa0cb9"
+  integrity sha512-y+8btoc/CK70XqcHqjxiGWBOeIL8upbS0peTPXTvgrh21n1RiWWcIpSWM+4uXq+IAgNh9YYQWdc7LVDPDAEEAg==
   dependencies:
     commander "^2.19.0"
 
