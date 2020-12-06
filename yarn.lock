@@ -8,9 +8,9 @@
   integrity sha512-emHJWZBPWdB5iDW9MrLSfq3lopyDlIhYXa8ttnCX9kQp1g+G0Lmfu/v6fW2aggjAfsZX8ksuZSG65o+EdwoN0g==
 
 "@yaireo/tagify@^3.9.3":
-  version "3.21.4"
-  resolved "https://registry.yarnpkg.com/@yaireo/tagify/-/tagify-3.21.4.tgz#3a7684672c250445138366d2d09c2b98fd44c97f"
-  integrity sha512-bDN39X5Q0PJABeErzBL0nTA26O6dHwK48cD37FqoWODqo0oymxT4GCPRBc2LYA3hg7/h/ibfKRiySWGAR1A+dQ==
+  version "3.21.5"
+  resolved "https://registry.yarnpkg.com/@yaireo/tagify/-/tagify-3.21.5.tgz#7aeb3726cd2cb11103d336fdeb602f3929731fdb"
+  integrity sha512-3XjcTKhp25+HrhQdmo0O53bCDlnTNb0Lq8rfn7UmPgcfYd3Nkf3Kwt7qY58aAtKT38mr+W7PfKg14vuLozx1dQ==
 
 bootstrap@^5.0.0-alpha1:
   version "5.0.0-alpha3"
@@ -18,9 +18,9 @@ bootstrap@^5.0.0-alpha1:
   integrity sha512-ghwrMFNzqOwfB0nJ1iYbkERd+EK1PblUl7rEEynY35jD0TUlSY6yrjG2M42qI++NhAUBEqGcjmmHkMGs3QyNHA==
 
 codemirror@^5.54.0:
-  version "5.58.2"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.58.2.tgz#ed54a1796de1498688bea1cdd4e9eeb187565d1b"
-  integrity sha512-K/hOh24cCwRutd1Mk3uLtjWzNISOkm4fvXiMO7LucCrqbh6aJDdtqUziim3MZUI6wOY0rvY1SlL1Ork01uMy6w==
+  version "5.58.3"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.58.3.tgz#3f0689854ecfbed5d4479a98b96148b2c3b79796"
+  integrity sha512-KBhB+juiyOOgn0AqtRmWyAT3yoElkuvWTI6hsHa9E6GQrl6bk/fdAYcvuqW1/upO9T9rtEtapWdw4XYcNiVDEA==
 
 commander@^2.19.0:
   version "2.20.3"
