@@ -12,5 +12,7 @@ DATABASES = {
     }
 }
 
+MEDIA_ROOT = 'testmediaroot'
+
 
 MATOMO_API_KEY = None
