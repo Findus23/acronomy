@@ -7,7 +7,9 @@ Production = False
 
 ADS_AUTH_TOKEN = None
 DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+    }
 }
 
 
