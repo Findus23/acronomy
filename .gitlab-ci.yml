@@ -1,0 +1,17 @@
+image: python:3.7
+
+cache:
+  paths:
+    - ~/.cache/pip/
+    - ~/.cache/poetry/
+
+before_script:
+  - python -V  # Print out python version for debugging
+  - pip install poetry
+  - poetry install
+
+
+test:
+  script:
+    - poetry run python manage.py test
+
