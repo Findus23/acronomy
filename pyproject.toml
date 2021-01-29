@@ -23,7 +23,7 @@ markdown-katex = "^202009.1026"
 sentry-sdk = {extras = ["django"], version = "^0.19.5"}
 
 [tool.poetry.dev-dependencies]
-bpython = "^0.19"
+bpython = "^0.21"
 
 [build-system]
 requires = ["poetry>=0.12"]
