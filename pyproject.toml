@@ -20,6 +20,7 @@ beautifulsoup4 = "^4.9.1"
 django-bootstrap4 = "^2.0.0"
 libsass = "^0.20.0"
 markdown-katex = "^202009.1026"
+sentry-sdk = {extras = ["django"], version = "^0.19.5"}
 
 [tool.poetry.dev-dependencies]
 bpython = "^0.19"
