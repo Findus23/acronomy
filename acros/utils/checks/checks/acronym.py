@@ -11,7 +11,7 @@ greek_letters = set([c for c in greek_symbols if c.isalpha()])
 
 class LetterCheck(BaseCheck):
     def run(self):
-        for acronym in Acronym.objects.all():
+        for acronym in Acronym.objects.filter(ignore_in_checks=False):
             if acronym.acro_letters is None:
                 yield CheckInfo(
                     "missing acronym letters",

@@ -30,6 +30,7 @@ class Acronym(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
     pageviews = models.IntegerField(default=0, editable=False)
+    ignore_in_checks = models.BooleanField(default=False)
 
     def clean(self):
         if not self.slug:
