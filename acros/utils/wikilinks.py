@@ -59,7 +59,7 @@ class WikiLinksInlineProcessor(InlineProcessor):
         a.text = label
         a.set("href", url)
         a.set("title", acro.full_name)
-        a.set("data-toggle", "tooltip")
+        a.set("data-bs-toggle", "tooltip")
         if self.html_class:
             a.set("class", self.html_class)
         return a, m.start(0), m.end(0)

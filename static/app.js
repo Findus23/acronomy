@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
     const tooltipList = tooltipTriggerList.map(
         tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl)
