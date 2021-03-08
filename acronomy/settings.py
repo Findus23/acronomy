@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     'simple_history',
     'debug_toolbar',
     'rest_framework',
-    'bootstrap4',
+    'django-bs5',
+    'django.forms'
 ]
+
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',

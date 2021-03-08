@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load bootstrap4 %}
+{% load bootstrap5 %}
 
 {% block heading %}
   <h1>Edit "{{ acro.full_name }}"</h1>
@@ -12,9 +12,7 @@
   <form method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% buttons %}
-      <input type="submit" class="btn btn-primary" value="Update">
-    {% endbuttons %}
+    <input type="submit" class="btn btn-primary" value="Update">
   </form>
 
 {% endblock %}

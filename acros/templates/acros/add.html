@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
+{% load bootstrap5 %}
 {% load static %}
 
 {% block heading %}
@@ -11,9 +11,7 @@
   <form method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% buttons %}
-      <input type="submit" class="btn btn-primary" value="Update">
-    {% endbuttons %}
+    <input type="submit" class="btn btn-primary" value="Update">
   </form>
 {% endblock %}
 
