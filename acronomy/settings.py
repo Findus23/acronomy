@@ -41,11 +41,8 @@ INSTALLED_APPS = [
     'simple_history',
     'debug_toolbar',
     'rest_framework',
-    'django-bs5',
-    'django.forms'
+    'django_bootstrap5',
 ]
-
-FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -131,6 +128,8 @@ STATICFILES_DIRS = [
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 SIMPLE_HISTORY_FILEFIELD_TO_CHARFIELD = True
 

@@ -157,16 +157,21 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-name = "django-bs5"
-version = "5.0.0b1"
-description = "simple bootstrap5 support for django"
+name = "django-bootstrap5"
+version = "1.0.0"
+description = "Bootstrap 5 for Django"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
+
+[package.dependencies]
+beautifulsoup4 = ">=4.8.0"
+Django = ">=2.2"
+importlib-metadata = {version = "<3", markers = "python_version < \"3.8\""}
 
 [[package]]
 name = "django-debug-toolbar"
-version = "3.2"
+version = "3.2.1"
 description = "A configurable set of panels that display various debug information about the current request/response."
 category = "main"
 optional = false
@@ -178,14 +183,11 @@ sqlparse = ">=0.2.0"
 
 [[package]]
 name = "django-simple-history"
-version = "2.12.0"
+version = "3.0.0"
 description = "Store model history and view/revert changes from admin site."
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-
-[package.dependencies]
-six = "*"
+python-versions = ">=3.6"
 
 [[package]]
 name = "djangorestframework"
@@ -241,19 +243,18 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "importlib-metadata"
-version = "3.10.1"
+version = "2.1.1"
 description = "Read metadata from Python packages"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
 [package.dependencies]
-typing-extensions = {version = ">=3.6.4", markers = "python_version < \"3.8\""}
 zipp = ">=0.5"
 
 [package.extras]
-docs = ["sphinx", "jaraco.packaging (>=8.2)", "rst.linker (>=1.9)"]
-testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-cov", "pytest-enabler (>=1.0.1)", "packaging", "pep517", "pyfakefs", "flufl.flake8", "pytest-black (>=0.3.7)", "pytest-mypy", "importlib-resources (>=1.3)"]
+docs = ["sphinx", "rst.linker"]
+testing = ["packaging", "pep517", "unittest2", "importlib-resources (>=1.3)"]
 
 [[package]]
 name = "libsass"
@@ -282,7 +283,7 @@ testing = ["coverage", "pyyaml"]
 
 [[package]]
 name = "markdown-katex"
-version = "202103.1029"
+version = "202104.1030"
 description = "katex extension for Python Markdown"
 category = "main"
 optional = false
@@ -384,7 +385,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
 name = "sentry-sdk"
-version = "0.19.5"
+version = "1.0.0"
 description = "Python client for Sentry (https://sentry.io)"
 category = "main"
 optional = false
@@ -437,7 +438,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "typing-extensions"
-version = "3.7.4.3"
+version = "3.10.0.0"
 description = "Backported and Experimental Type Hints for Python 3.5+"
 category = "main"
 optional = false
@@ -483,7 +484,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0"
-content-hash = "c1c91bf6cdc5330dee772f071623781d5425d3ad719d3420504fb9293a1d398e"
+content-hash = "eac89e20b8829bca570279e0031f61db848df4b6e221e9af96a4acb7393544d3"
 
 [metadata.files]
 ads = [
@@ -612,16 +613,17 @@ django = [
     {file = "Django-3.2-py3-none-any.whl", hash = "sha256:0604e84c4fb698a5e53e5857b5aea945b2f19a18f25f10b8748dbdf935788927"},
     {file = "Django-3.2.tar.gz", hash = "sha256:21f0f9643722675976004eb683c55d33c05486f94506672df3d6a141546f389d"},
 ]
-django-bs5 = [
-    {file = "django-bs5-5.0.0b1.tar.gz", hash = "sha256:68e3fe188782a60e4e52c34d491794ae24f8e5e12d1abfef11da54fb3a8bec94"},
+django-bootstrap5 = [
+    {file = "django-bootstrap5-1.0.0.tar.gz", hash = "sha256:1333dcb7f5707f1e29439360257744588efa51f2160f0b3f3eac9cada23c8903"},
+    {file = "django_bootstrap5-1.0.0-py3-none-any.whl", hash = "sha256:846e9b5cba696f35a3cbe3eee364da3c223f85fcbefdddfb9a4c5c3c42ea8681"},
 ]
 django-debug-toolbar = [
-    {file = "django-debug-toolbar-3.2.tar.gz", hash = "sha256:84e2607d900dbd571df0a2acf380b47c088efb787dce9805aefeb407341961d2"},
-    {file = "django_debug_toolbar-3.2-py3-none-any.whl", hash = "sha256:9e5a25d0c965f7e686f6a8ba23613ca9ca30184daa26487706d4829f5cfb697a"},
+    {file = "django-debug-toolbar-3.2.1.tar.gz", hash = "sha256:a5ff2a54f24bf88286f9872836081078f4baa843dc3735ee88524e89f8821e33"},
+    {file = "django_debug_toolbar-3.2.1-py3-none-any.whl", hash = "sha256:e759e63e3fe2d3110e0e519639c166816368701eab4a47fed75d7de7018467b9"},
 ]
 django-simple-history = [
-    {file = "django-simple-history-2.12.0.tar.gz", hash = "sha256:3b7bf6bfbcf973afca123c5786c72b917ed4d92d7bf3b6cb70fe2e3850e763a3"},
-    {file = "django_simple_history-2.12.0-py2.py3-none-any.whl", hash = "sha256:e7e830cb7a768dc90d6ba0507f8023f889bcb62fe31a08f18fac102c55eec539"},
+    {file = "django-simple-history-3.0.0.tar.gz", hash = "sha256:66fe76c560054be393c52b1799661e104fbe372918d37d151e5d41c676158118"},
+    {file = "django_simple_history-3.0.0-py2.py3-none-any.whl", hash = "sha256:a312adfe8fbec4c450b08e641b11249a8a589a7e7d1ba2404764b8b5bed53552"},
 ]
 djangorestframework = [
     {file = "djangorestframework-3.12.4-py3-none-any.whl", hash = "sha256:6d1d59f623a5ad0509fe0d6bfe93cbdfe17b8116ebc8eda86d45f6e16e819aaf"},
@@ -684,8 +686,8 @@ idna = [
     {file = "idna-2.10.tar.gz", hash = "sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"},
 ]
 importlib-metadata = [
-    {file = "importlib_metadata-3.10.1-py3-none-any.whl", hash = "sha256:2ec0faae539743ae6aaa84b49a169670a465f7f5d64e6add98388cc29fd1f2f6"},
-    {file = "importlib_metadata-3.10.1.tar.gz", hash = "sha256:c9356b657de65c53744046fa8f7358afe0714a1af7d570c00c3835c2d724a7c1"},
+    {file = "importlib_metadata-2.1.1-py2.py3-none-any.whl", hash = "sha256:c2d6341ff566f609e89a2acb2db190e5e1d23d5409d6cc8d2fe34d72443876d4"},
+    {file = "importlib_metadata-2.1.1.tar.gz", hash = "sha256:b8de9eff2b35fb037368f28a7df1df4e6436f578fa74423505b6c6a778d5b5dd"},
 ]
 libsass = [
     {file = "libsass-0.20.1-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:4a246e4b88fd279abef8b669206228c92534d96ddcd0770d7012088c408dff23"},
@@ -707,8 +709,8 @@ markdown = [
     {file = "Markdown-3.3.4.tar.gz", hash = "sha256:31b5b491868dcc87d6c24b7e3d19a0d730d59d3e46f4eea6430a321bed387a49"},
 ]
 markdown-katex = [
-    {file = "markdown-katex-202103.1029.tar.gz", hash = "sha256:b5fb2ab2c659ce8a4f71f16eadb29b61888c77ad78b61de93515524ba5cd5c9a"},
-    {file = "markdown_katex-202103.1029-py2.py3-none-any.whl", hash = "sha256:937d9bdbb3c60876de3e5fa46c92c7164ca97c9826a74d08d8fc516b31b6cc41"},
+    {file = "markdown-katex-202104.1030.tar.gz", hash = "sha256:9bc3d9b88d2c11fd7174527dc46e5cfeea610d72528131e16b3229b654b55247"},
+    {file = "markdown_katex-202104.1030-py2.py3-none-any.whl", hash = "sha256:64bdb36210caa3d23c42a5b0937edd96dd27ebbbd49465302c45f7138a37ed8e"},
 ]
 mock = [
     {file = "mock-4.0.3-py3-none-any.whl", hash = "sha256:122fcb64ee37cfad5b3f48d7a7d51875d7031aaf3d8be7c42e2bee25044eee62"},
@@ -791,8 +793,8 @@ requests = [
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
 ]
 sentry-sdk = [
-    {file = "sentry-sdk-0.19.5.tar.gz", hash = "sha256:737a094e49a529dd0fdcaafa9e97cf7c3d5eb964bd229821d640bc77f3502b3f"},
-    {file = "sentry_sdk-0.19.5-py2.py3-none-any.whl", hash = "sha256:0a711ec952441c2ec89b8f5d226c33bc697914f46e876b44a4edd3e7864cf4d0"},
+    {file = "sentry-sdk-1.0.0.tar.gz", hash = "sha256:71de00c9711926816f750bc0f57ef2abbcb1bfbdf5378c601df7ec978f44857a"},
+    {file = "sentry_sdk-1.0.0-py2.py3-none-any.whl", hash = "sha256:9221e985f425913204989d0e0e1cbb719e8b7fa10540f1bc509f660c06a34e66"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
@@ -807,9 +809,9 @@ sqlparse = [
     {file = "sqlparse-0.4.1.tar.gz", hash = "sha256:0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"},
 ]
 typing-extensions = [
-    {file = "typing_extensions-3.7.4.3-py2-none-any.whl", hash = "sha256:dafc7639cde7f1b6e1acc0f457842a83e722ccca8eef5270af2d74792619a89f"},
-    {file = "typing_extensions-3.7.4.3-py3-none-any.whl", hash = "sha256:7cb407020f00f7bfc3cb3e7881628838e69d8f3fcab2f64742a5e76b2f841918"},
-    {file = "typing_extensions-3.7.4.3.tar.gz", hash = "sha256:99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c"},
+    {file = "typing_extensions-3.10.0.0-py2-none-any.whl", hash = "sha256:0ac0f89795dd19de6b97debb0c6af1c70987fd80a2d62d1958f7e56fcc31b497"},
+    {file = "typing_extensions-3.10.0.0-py3-none-any.whl", hash = "sha256:779383f6086d90c99ae41cf0ff39aac8a7937a9283ce0a414e5dd782f4c94a84"},
+    {file = "typing_extensions-3.10.0.0.tar.gz", hash = "sha256:50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"},
 ]
 urllib3 = [
     {file = "urllib3-1.26.4-py2.py3-none-any.whl", hash = "sha256:2f4da4594db7e1e110a944bb1b551fdf4e6c136ad42e4234131391e21eb5b0df"},
