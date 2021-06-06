@@ -1,4 +1,5 @@
 {
+  "name": "acronomy",
   "dependencies": {
     "@trevoreyre/autocomplete-js": "^2.1.1",
     "@yaireo/tagify": "^4.2.0",
