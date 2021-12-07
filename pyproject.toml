@@ -5,13 +5,13 @@ description = ""
 authors = ["Lukas Winkler <git@lw1.at>"]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4.0"
-django = { extras = ["argon2"], version = "~3.2.0" }
+python = ">=3.8,<4.0"
+django = { extras = ["argon2"], version = "~4.0.0" }
 psycopg2 = "^2.8.5"
 django-simple-history = "^3.0.0"
 markdown = "^3.2.2"
 django-debug-toolbar = "^3.1.1"
-djangorestframework = "^3.11.1"
+#djangorestframework = "^3.11.1"
 requests = "^2.23.0"
 ads = "^0.12.3"
 Pillow = "^8.0.1"
@@ -21,6 +21,7 @@ libsass = "^0.21.0"
 markdown-katex = "^202106.1032"
 sentry-sdk = {extras = ["django"], version = "^1.0.0"}
 django-bootstrap5 = "^2.0.0"
+djangorestframework = {git = "https://github.com/encode/django-rest-framework.git"}
 
 [tool.poetry.dev-dependencies]
 bpython = "^0.21"
