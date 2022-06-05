@@ -21,7 +21,7 @@ class Host(models.Model):
         return self.host
 
     def save(self, *args, **kwargs):
-        if not self.fetched or True:
+        if not self.fetched:
             with TemporaryFile("rb+") as fd:
                 r = requests_session.get(f"https://external-content.duckduckgo.com/ip3/{self.host}.ico")
                 if r.ok:
