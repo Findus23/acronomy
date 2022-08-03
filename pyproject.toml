@@ -6,7 +6,7 @@ authors = ["Lukas Winkler <git@lw1.at>"]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-django = { extras = ["argon2"], version = "~4.0.0" }
+django = { extras = ["argon2"], version = "~4.1.0" }
 psycopg2 = "^2.8.5"
 django-simple-history = "^3.0.0"
 markdown = "^3.2.2"
