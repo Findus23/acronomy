@@ -8,7 +8,7 @@ cache:
 before_script:
   - python -V  # Print out python version for debugging
   - cp acronomy/secrets.test.py acronomy/secrets.py
-  - pip install poetry==1.2.0b2 # required for now
+  - pip install poetry # required for now
   - poetry install
 
 
