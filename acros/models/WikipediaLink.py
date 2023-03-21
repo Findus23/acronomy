@@ -14,6 +14,8 @@ class WikipediaLink(models.Model):
     extract = models.TextField(blank=True)
     extract_html = models.TextField(blank=True)
     description = models.TextField(blank=True, null=True)
+    description_source = models.CharField(blank=True, null=True, max_length=20)
+    wikibase_item = models.CharField(blank=True, null=True, max_length=20)
     thumbnail = models.ForeignKey(WikipediaImage, on_delete=models.CASCADE, related_name="wiki_articles",
                                   blank=True, null=True)
     timestamp = models.DateTimeField(blank=True)
@@ -29,8 +31,10 @@ class WikipediaLink(models.Model):
             self.extract = summary.extract
             self.extract_html = summary.extract_html
             self.description = summary.description
+            self.description_source = summary.description_source
             self.timestamp = summary.timestamp
             self.title = summary.title
+            self.wikibase_item = summary.wikibase_item
             if summary.image:
                 filename = unquote(summary.image.split("/")[-1])
                 if filename.endswith(".svg.png"):

@@ -57,6 +57,7 @@ class LinkAdmin(SimpleHistoryAdmin):
 
 class WikipediaAdmin(SimpleHistoryAdmin):
     list_display = ["title", "acronym", "thumbnail"]
+    list_filter = ["description_source"]
     date_hierarchy = "timestamp"
     ...
 

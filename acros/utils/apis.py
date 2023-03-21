@@ -26,6 +26,7 @@ class WikipediaAPISummary:
     urlbase = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 
     def __init__(self, title: str):
+        print(self.urlbase + title.replace("/", "%2F"))
         r = requests_session.get(self.urlbase + title.replace("/", "%2F"))
         try:
             r.raise_for_status()
@@ -49,6 +50,15 @@ class WikipediaAPISummary:
     def description(self) -> str:
         if "description" in self.data:
             return self.data["description"]
+    @property
+    def description_source(self) -> str:
+        if "description_source" in self.data:
+            return self.data["description_source"]
+
+    @property
+    def wikibase_item(self) -> Optional[str]:
+        if "wikibase_item" in self.data:
+            return self.data["wikibase_item"]
 
     @property
     def timestamp(self) -> str:

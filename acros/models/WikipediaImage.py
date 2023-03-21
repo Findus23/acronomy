@@ -1,6 +1,5 @@
 from tempfile import TemporaryFile
 
-import requests
 from django.core.files import File
 from django.db import models
 
