@@ -33,6 +33,8 @@ class WikipediaLink(models.Model):
             self.title = summary.title
             if summary.image:
                 filename = unquote(summary.image.split("/")[-1])
+                if filename.endswith(".svg.png"):
+                    filename = summary.image.split("/")[-2]
                 try:
                     thumbnail = WikipediaImage.objects.get(filename=filename)
                 except WikipediaImage.DoesNotExist:
