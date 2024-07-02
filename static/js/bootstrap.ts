@@ -1,4 +1,5 @@
-import {Dropdown, Tooltip} from "bootstrap";
+import Dropdown from "bootstrap/js/dist/dropdown";
+import Tooltip from "bootstrap/js/dist/tooltip";
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList]
