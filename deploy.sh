@@ -9,6 +9,7 @@ manage="sudo -u acronomy $python manage.py"
 git pull
 
 $manage scss
+npm run build
 $manage collectstatic --noinput
 $manage migrate
 $manage clearcache
