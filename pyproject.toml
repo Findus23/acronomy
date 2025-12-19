@@ -1,31 +1,28 @@
-[tool.poetry]
+[project]
 name = "acronomy"
 version = "0.1.0"
 description = ""
-authors = ["Lukas Winkler <git@lw1.at>"]
+authors = [{ name = "Lukas Winkler", email = "git@lw1.at" }]
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "django[argon2]~=5.1.3",
+    "django-simple-history>=3.0.0,<4",
+    "markdown>=3.2.2,<4",
+    "django-debug-toolbar>=5.1.0,<6",
+    "djangorestframework>=3.13.1,<4",
+    "requests>=2.23.0,<3",
+    "ads>=0.12.3,<0.13",
+    "Pillow>=11.1.0,<12",
+    "gunicorn>=23.0.0,<24",
+    "beautifulsoup4>=4.9.1,<5",
+    "libsass>=0.23.0,<0.24",
+    "markdown-katex>=202406.1035,<202407",
+    "sentry-sdk[django]>=2.7.1,<3",
+    "django-bootstrap5>=25.1,<26",
+    "psycopg[c, pool]>=3.1.19,<4",
+    "setproctitle>=1.3.2,<2",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.10,<4.0"
-django = { extras = ["argon2"], version = "~5.1.3" }
-django-simple-history = "^3.0.0"
-markdown = "^3.2.2"
-django-debug-toolbar = "^5.1.0"
-djangorestframework = "^3.13.1"
-requests = "^2.23.0"
-ads = "^0.12.3"
-Pillow = "^11.1.0"
-gunicorn = "^23.0.0"
-beautifulsoup4 = "^4.9.1"
-libsass = "^0.23.0"
-markdown-katex = "^202406.1035"
-sentry-sdk = {extras = ["django"], version = "^2.7.1"}
-django-bootstrap5 = "^25.1"
-psycopg = {extras = ["c", "pool"], version = "^3.1.19"}
-setproctitle = "^1.3.2"
+[dependency-groups]
+dev = ["bpython>=0.25,<0.26"]
 
-[tool.poetry.group.dev.dependencies]
-bpython = "^0.25"
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
